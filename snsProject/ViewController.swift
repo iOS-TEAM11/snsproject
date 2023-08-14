@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(1)
+        print(2)
         // Do any additional setup after loading the view.
     }
     
