@@ -12,18 +12,19 @@
         <scene sceneID="rss-us-JeJ">
             <objects>
                 <viewController storyboardIdentifier="CreatePage" id="4V9-9P-FaA" customClass="CreatePageViewController" customModule="snsProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d50-op-sZK">
+                    <view key="view" contentMode="scaleToFill" id="d50-op-sZK" customClass="ImagePickerViewController">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="i71-Ea-GIp"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="createpage" id="blW-in-VnT"/>
+                    <navigationItem key="navigationItem" id="cWx-XU-RF6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44h-1K-pfH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="-127"/>
+            <point key="canvasLocation" x="2118" y="-40"/>
         </scene>
     </scenes>
     <resources>
