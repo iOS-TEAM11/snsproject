@@ -26,6 +26,8 @@
 		C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */; };
 		FB55D8852A8A5052000AE663 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55D8832A8A5052000AE663 /* MyPageCollectionViewCell.swift */; };
 		FB55D8862A8A5052000AE663 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB55D8842A8A5052000AE663 /* MyPageCollectionViewCell.xib */; };
+		FB55D88A2A8A9AFD000AE663 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB55D8882A8A9AFD000AE663 /* PostCollectionViewCell.swift */; };
+		FB55D88B2A8A9AFD000AE663 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB55D8892A8A9AFD000AE663 /* PostCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		FB55D8832A8A5052000AE663 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyPageCollectionViewCell.swift; path = "../../../../.Trash/snsproject 오후 4.46.50/snsProject/MyPageCollectionViewCell.swift"; sourceTree = "<group>"; };
 		FB55D8842A8A5052000AE663 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MyPageCollectionViewCell.xib; path = "../../../../.Trash/snsproject 오후 4.46.50/snsProject/MyPageCollectionViewCell.xib"; sourceTree = "<group>"; };
+		FB55D8882A8A9AFD000AE663 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCollectionViewCell.swift; path = ../../../../PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB55D8892A8A9AFD000AE663 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PostCollectionViewCell.xib; path = ../../../../PostCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +133,8 @@
 		C3CCB3242A89DC6B0026EEA8 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				FB55D8822A8A29C2000AE663 /* Cell */,
+				FB55D8872A8A9AD3000AE663 /* PostCell */,
+				FB55D8822A8A29C2000AE663 /* MyPageCell */,
 				C3CCB32B2A89FE640026EEA8 /* MyPageViewController.swift */,
 				C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */,
 			);
@@ -145,13 +150,22 @@
 			path = CreatePage;
 			sourceTree = "<group>";
 		};
-		FB55D8822A8A29C2000AE663 /* Cell */ = {
+		FB55D8822A8A29C2000AE663 /* MyPageCell */ = {
 			isa = PBXGroup;
 			children = (
 				FB55D8832A8A5052000AE663 /* MyPageCollectionViewCell.swift */,
 				FB55D8842A8A5052000AE663 /* MyPageCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = MyPageCell;
+			sourceTree = "<group>";
+		};
+		FB55D8872A8A9AD3000AE663 /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB55D8882A8A9AFD000AE663 /* PostCollectionViewCell.swift */,
+				FB55D8892A8A9AFD000AE663 /* PostCollectionViewCell.xib */,
+			);
+			path = PostCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +230,7 @@
 				C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */,
 				FB55D8862A8A5052000AE663 /* MyPageCollectionViewCell.xib in Resources */,
 				C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */,
+				FB55D88B2A8A9AFD000AE663 /* PostCollectionViewCell.xib in Resources */,
 				C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */,
 				C3CCB3142A89C6A30026EEA8 /* Assets.xcassets in Resources */,
 				C3CCB30F2A89C6A20026EEA8 /* Main.storyboard in Resources */,
@@ -239,6 +254,7 @@
 				C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */,
 				C3CCB3122A89C6A20026EEA8 /* snsProject.xcdatamodeld in Sources */,
 				C3CBD8262A8A0E830020A3DE /* TabBarController.swift in Sources */,
+				FB55D88A2A8A9AFD000AE663 /* PostCollectionViewCell.swift in Sources */,
 				C3CCB30A2A89C6A20026EEA8 /* SceneDelegate.swift in Sources */,
 				FB55D8852A8A5052000AE663 /* MyPageCollectionViewCell.swift in Sources */,
 			);
