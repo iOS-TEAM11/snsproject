@@ -14,6 +14,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    var test = "test2"
+    var test = "test3"
 }
 
