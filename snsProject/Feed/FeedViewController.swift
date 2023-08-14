@@ -7,13 +7,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+<<<<<<< HEAD:snsProject/ViewController.swift
 
     var test = "test5"
+=======
+    
+    var test = "test"
+>>>>>>> main:snsProject/Feed/FeedViewController.swift
 }
 
