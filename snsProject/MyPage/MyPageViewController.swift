@@ -10,6 +10,6 @@ import UIKit
 class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
-        print("")
+        print("1")
     }
 }
