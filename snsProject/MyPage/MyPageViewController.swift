@@ -1,17 +1,21 @@
 import UIKit
 
-class MyPageViewController: UIViewController {
+protocol ImagePickerManagerDelegate: AnyObject {
+    func didPickImage(_ image: UIImage)
+}
+
+class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
+    let collectionView = MyPageCollectionViewCell()
+
     let myFeedImg: [String] = [
         "https://static.wikia.nocookie.net/shinchan/images/d/d8/Shinnoske.jpg/revision/latest?cb=20131020030755&path-prefix=ko",
         "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MTBfMjI2%2FMDAxNjg4OTE3MTc2NjI4.LpXG37XqrD-WVQUTbbrrN0oDmQ5_GnQrtKpzKj0UPUQg.MguCJjlR-8hHcFFJoLo4DfVkPzYOiCDzSuEosxDPrXgg.JPEG.ddongddangg%2FIMG_5446.JPG&type=sc960_832",
         "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MTlfOSAg%2FMDAxNjg3MTAxMDEyMzkz.DmS5Y7_dd4Tj5LtEQOyxzteWF7ndOxoIUdhGxQtcnrYg.vTmHsNJcdQD-bS_xrFPV7FA7cmvSIDSgDG1D64e3m4Ug.PNG.salgudoll%2Fp1.png&type=sc960_832",
         "https://m.storinus.co.kr/web/product/extra/big/202105/d64d6b70188d4fdfef22cca88ec187cb.jpg"
     ]
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +66,8 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
                 for: indexPath) as? MyPageCollectionViewCell
+
+            //cell.myPageImageView
             else {
                 // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
@@ -75,10 +81,10 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
-            
+
             let img = myFeedImg[indexPath.item]
             cell.updateUI(img)
-            
+
             return cell
         }
     }
@@ -96,7 +102,7 @@ extension MyPageViewController: UICollectionViewDelegateFlowLayout {
                 width: collectionView.frame.width,
                 height: CGFloat(159))
         default:
-            let side = CGFloat((collectionView.frame.width / 3) - (4/3)) // 하나의 면의 크기를 같게 하기위해
+            let side = CGFloat((collectionView.frame.width / 3) - (4 / 3)) // 하나의 면의 크기를 같게 하기위해
             return CGSize(
                 width: side,
                 height: side)
