@@ -7,7 +7,8 @@ class MyPageViewController: UIViewController {
     let myFeedImg: [String] = [
         "https://static.wikia.nocookie.net/shinchan/images/d/d8/Shinnoske.jpg/revision/latest?cb=20131020030755&path-prefix=ko",
         "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MTBfMjI2%2FMDAxNjg4OTE3MTc2NjI4.LpXG37XqrD-WVQUTbbrrN0oDmQ5_GnQrtKpzKj0UPUQg.MguCJjlR-8hHcFFJoLo4DfVkPzYOiCDzSuEosxDPrXgg.JPEG.ddongddangg%2FIMG_5446.JPG&type=sc960_832",
-        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MTlfOSAg%2FMDAxNjg3MTAxMDEyMzkz.DmS5Y7_dd4Tj5LtEQOyxzteWF7ndOxoIUdhGxQtcnrYg.vTmHsNJcdQD-bS_xrFPV7FA7cmvSIDSgDG1D64e3m4Ug.PNG.salgudoll%2Fp1.png&type=sc960_832"
+        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MTlfOSAg%2FMDAxNjg3MTAxMDEyMzkz.DmS5Y7_dd4Tj5LtEQOyxzteWF7ndOxoIUdhGxQtcnrYg.vTmHsNJcdQD-bS_xrFPV7FA7cmvSIDSgDG1D64e3m4Ug.PNG.salgudoll%2Fp1.png&type=sc960_832",
+        "https://m.storinus.co.kr/web/product/extra/big/202105/d64d6b70188d4fdfef22cca88ec187cb.jpg"
     ]
     
     
