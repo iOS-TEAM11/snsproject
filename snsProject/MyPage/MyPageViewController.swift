@@ -1,15 +1,16 @@
-//
-//  MyPage.swift
-//  snsProject
-//
-//  Created by t2023-m0062 on 2023/08/14.
-//
-
 import UIKit
 
 class MyPageViewController: UIViewController {
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
+    
+    let myFeedImg: [String] = [
+        "https://static.wikia.nocookie.net/shinchan/images/d/d8/Shinnoske.jpg/revision/latest?cb=20131020030755&path-prefix=ko",
+        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MTBfMjI2%2FMDAxNjg4OTE3MTc2NjI4.LpXG37XqrD-WVQUTbbrrN0oDmQ5_GnQrtKpzKj0UPUQg.MguCJjlR-8hHcFFJoLo4DfVkPzYOiCDzSuEosxDPrXgg.JPEG.ddongddangg%2FIMG_5446.JPG&type=sc960_832",
+        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MTlfOSAg%2FMDAxNjg3MTAxMDEyMzkz.DmS5Y7_dd4Tj5LtEQOyxzteWF7ndOxoIUdhGxQtcnrYg.vTmHsNJcdQD-bS_xrFPV7FA7cmvSIDSgDG1D64e3m4Ug.PNG.salgudoll%2Fp1.png&type=sc960_832"
+    ]
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 0:
             return 1
         default:
-            return 24
+            return myFeedImg.count
         }
     }
 
@@ -73,6 +74,10 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
+            
+            let img = myFeedImg[indexPath.item]
+            cell.updateUI(img)
+            
             return cell
         }
     }
