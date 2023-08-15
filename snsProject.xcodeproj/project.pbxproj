@@ -26,6 +26,8 @@
 		C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */; };
 		FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */; };
 		FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */; };
+		FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */; };
+		FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 		FB55D8872A8A9AD3000AE663 /* PostCell */ = {
 			isa = PBXGroup;
 			children = (
+				FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */,
+				FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */,
 			);
 			path = PostCell;
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */,
 				C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */,
 				C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */,
+				FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */,
 				C3CCB3142A89C6A30026EEA8 /* Assets.xcassets in Resources */,
 				C3CCB30F2A89C6A20026EEA8 /* Main.storyboard in Resources */,
 				FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */,
@@ -247,6 +254,7 @@
 				C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */,
 				C3CCB3122A89C6A20026EEA8 /* snsProject.xcdatamodeld in Sources */,
 				FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */,
+				FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */,
 				C3CBD8262A8A0E830020A3DE /* TabBarController.swift in Sources */,
 				C3CCB30A2A89C6A20026EEA8 /* SceneDelegate.swift in Sources */,
 			);
