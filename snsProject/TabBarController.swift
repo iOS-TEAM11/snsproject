@@ -1,25 +1,20 @@
 import UIKit
 
-class TabBarController: UITabBarController, ImagePickerManagerDelegate {
+class TabBarController: UITabBarController {
 
-    private let imagePickerManager = ImagePickerManager()
+    let imagePickerManager = ImagePickerManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imagePickerManager.delegate = self
+        self.selectedIndex = 0
         self.delegate = self
-    }
-    
-    //이미지 선택시 Description 페이지로 이동
-    func didPickImage(_ image: UIImage) {
-        self.performSegue(withIdentifier: "toDescription", sender: image)
     }
 }
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if self.selectedIndex == 2 {
+
+        if self.selectedIndex == 1 {
             imagePickerManager.presentImagePicker(from: self)
         }
     }
