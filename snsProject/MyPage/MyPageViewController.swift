@@ -1,8 +1,8 @@
 import UIKit
 
-protocol ImagePickerManagerDelegate: AnyObject {
-    func didPickImage(_ image: UIImage)
-}
+//protocol ImagePickerManagerDelegate: AnyObject {
+//    func didPickImage(_ image: UIImage)
+//}
 
 class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // 프로퍼티 설정
