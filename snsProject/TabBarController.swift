@@ -2,6 +2,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    var posts: [Post] = []
 
     private let imagePickerController = ImagePickerController()
 
@@ -24,5 +25,6 @@ extension TabBarController: UITabBarControllerDelegate {
         }
     }
 }
+
 
 

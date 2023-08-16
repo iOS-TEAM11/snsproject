@@ -11,10 +11,12 @@ class DescriptionViewController: UIViewController {
     
     let uploadImage: UIImage
     private let imageView = UIImageView()
-    private lazy var textView: UITextView = {
-        let textView = UITextView()
-        textView.font = .systemFont(ofSize: 15.0)
-        return textView
+    private lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.font = .systemFont(ofSize: 15.0)
+        textField.placeholder = "게시글을 입력해주세요"
+        
+        return textField
     }()
     
     init(uploadImage: UIImage) {
@@ -29,7 +31,7 @@ class DescriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         setupNavitagionItem()
         setupLayout()
         imageView.image = uploadImage
@@ -50,14 +52,20 @@ private extension DescriptionViewController {
         dismiss(animated: true)
     }
     @objc func didTapRightButton() {
+        guard let tabController = presentingViewController as? TabBarController else {
+            return
+        }
+        let post = Post(image: uploadImage, description: textField.text ?? "")
+        tabController.posts.append(post)
         dismiss(animated: true)
+        
     }
     
     func setupLayout() {
         let imageViewInset: CGFloat = 16.0
 
         // Create the UIStackView
-        let stackView = UIStackView(arrangedSubviews: [imageView, textView])
+        let stackView = UIStackView(arrangedSubviews: [imageView, textField])
         stackView.axis = .horizontal
         stackView.spacing = imageViewInset
         stackView.alignment = .fill
@@ -67,7 +75,7 @@ private extension DescriptionViewController {
         // Disable autoresizing masks
         stackView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
 
         // Constraints for imageView
         NSLayoutConstraint.activate([

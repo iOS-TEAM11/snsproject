@@ -8,20 +8,27 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
+    var myFeedImg: [UIImage] = []
+
     let collectionView = MyPageCollectionViewCell()
 
-    let myFeedImg: [String] = [
-        "https://static.wikia.nocookie.net/shinchan/images/d/d8/Shinnoske.jpg/revision/latest?cb=20131020030755&path-prefix=ko",
-        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MTBfMjI2%2FMDAxNjg4OTE3MTc2NjI4.LpXG37XqrD-WVQUTbbrrN0oDmQ5_GnQrtKpzKj0UPUQg.MguCJjlR-8hHcFFJoLo4DfVkPzYOiCDzSuEosxDPrXgg.JPEG.ddongddangg%2FIMG_5446.JPG&type=sc960_832",
-        "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA2MTlfOSAg%2FMDAxNjg3MTAxMDEyMzkz.DmS5Y7_dd4Tj5LtEQOyxzteWF7ndOxoIUdhGxQtcnrYg.vTmHsNJcdQD-bS_xrFPV7FA7cmvSIDSgDG1D64e3m4Ug.PNG.salgudoll%2Fp1.png&type=sc960_832",
-        "https://m.storinus.co.kr/web/product/extra/big/202105/d64d6b70188d4fdfef22cca88ec187cb.jpg"
-    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let tabController = tabBarController as? TabBarController {
+            myFeedImg = tabController.posts.map { $0.image }
+            print(myFeedImg.count)  // This should print the number of images
 
+        }
         setupCollectionView()
     }
+    
+    //뷰 띄울때 데이터 업데이트
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        myPageCollectionView.reloadData()
+    }
+
 
     // 메소드 설정
     private func setupCollectionView() {
@@ -60,8 +67,12 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     // cell 생성
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = indexPath.section
+        
 
         switch section {
+            
+        
+        
         case 0:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
@@ -73,6 +84,8 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 fatalError("cell을 불러오지 못하였습니다")
             }
             return cell
+            
+            
         default:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: PostCollectionViewCell.identifier,
@@ -81,9 +94,10 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
-
+            
+            //데이터가져오기
             let img = myFeedImg[indexPath.item]
-            cell.updateUI(img)
+            cell.setPostImage(img)
 
             return cell
         }
