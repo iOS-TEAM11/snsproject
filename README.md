@@ -1,7 +1,11 @@
 # iOS_TEAM11: SNS Project 
+>스파르타코딩 iOS_7기 iOS입문팀프로젝트_TEAM11<br><br>
+>저희 팀은 SNS 중 instagram을 클론해보며 이번 프로젝트를 진행하기로 하였습니다.<br>
+>인스타에는 여러가지 구성들이 있지만 개발기간과 서로의 개인공부시간을 위해 4개의 view로 나눴습니다.<br><br>
+>개발기간: 2023/08/14 월요일 ~ 2023/08/18 금요일<br>
+>발표: 2023/08/21 월요일
 
-저희 팀은 SNS 중 instagram을 클론해보며 이번 프로젝트를 진행하기로 하였습니다.
-### Team Members
+## TEAM11 소개
 <table>
   <tbody>
     <tr>
@@ -77,6 +81,26 @@
     </td>
   </tbody>
 </table>
+
+## 와이어 프레임
+참조: 와이어 프레임의 사진의 출처는 @nimbus_cloud_dog 입니다 (가장 좋아하는 강아지 사진이라 가져왔어요)
+![IMG_1541](https://github.com/iOS-TEAM11/snsproject/assets/93186591/4cd5cf64-c28b-4ecf-9b2f-bfd378e954cf)
+![IMG_1542](https://github.com/iOS-TEAM11/snsproject/assets/93186591/77354c97-fd96-4e6a-9e4d-0deedfb57c85)
+
+## 역할분담
+[발표자료 Notion](https://teamsparta.notion.site/11-S-A-07637d8a984947be945dba731cf12c6b)
+* 이세령: 홈 피드 화면 구현하기 및 TabBar 구현
+* 전종혁: UIImagePicker를 사용하여 앨범에서 사진 고르기 및 피드 추가 구현
+* 김은경: 프로필 화면 구현 및 프로필 사진 앨범에서 고를 수 있게 만들기
+* 하호형: 프로필 편집 화면 구현
+* 이리연: UIKit 공부 및 Swift 스터디
+
+### 팀 규칙
+* 각자가 맡은 일에 충실할 것
+* 8PM 개발 진척도 확인 및 문제점 공유 및 해결
+* commit 메세지 수시로 작성해두기
+
+## 앱 시현 영상
 
 ### Git Conventions
 - Commit Message는 아래와 같은 규칙을 따릅니다.
