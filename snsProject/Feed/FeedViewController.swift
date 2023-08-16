@@ -16,6 +16,9 @@ class FeedViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
+        let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
+        tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
     }
     
 }
@@ -26,13 +29,17 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     
-    //cellForRowAt - 어떠한 셀을 보여줄 것인지?
+    //cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .blue
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
+            return UITableViewCell()
+        }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return 600
+    }
     
 }
 
