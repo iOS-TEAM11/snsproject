@@ -2,7 +2,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    let imagePickerManager = ImagePickerManager()
+    private let imagePickerManager = ImagePickerManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +14,7 @@ class TabBarController: UITabBarController {
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
 
-        if self.selectedIndex == 1 {
+        if self.selectedIndex == 2 {
             imagePickerManager.presentImagePicker(from: self)
         }
     }

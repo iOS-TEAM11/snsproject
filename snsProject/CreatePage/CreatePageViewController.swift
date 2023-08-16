@@ -1,23 +1,26 @@
 import UIKit
 
 
-//UIImagePickerController는 UINavigationController의 하위 클래스이기 때문에 채택
-class ImagePickerManager {
-
-    //UIImagePickerController 인스턴스 만들기
-    private var picker = UIImagePickerController()
-
-    //UIViewController인스턴스 만들기
-    weak var presentationController: UIViewController?
+//UIImagePickerController는 UINavigationController를 확장하기 위해 NSObject 채태
+class ImagePickerManager: UIImagePickerController {
 
     // image picker를 보여주는 함수
     func presentImagePicker(from viewController: UIViewController) {
-        picker.sourceType = .photoLibrary
-        picker.allowsEditing = true
-        self.presentationController = viewController
-        viewController.present(picker, animated: true, completion: nil)
+        self.sourceType = .photoLibrary
+        self.allowsEditing = true
+        viewController.present(self, animated: true, completion: nil)
     }
 }
+
+
+// 이미지 선택 이후 뷰 띄우기는 UIImagePickerControllerDelegate, UINavigationControllerDelegate 메서드가 필요한 부분
+extension ImagePickerManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    
+}
+
+
 
 
 
