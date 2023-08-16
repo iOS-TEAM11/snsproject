@@ -116,12 +116,12 @@
 				C3CCB3072A89C6A20026EEA8 /* AppDelegate.swift */,
 				C3CCB3092A89C6A20026EEA8 /* SceneDelegate.swift */,
 				C3CBD8252A8A0E830020A3DE /* TabBarController.swift */,
+				0843146C2A8CACFF00C7A56E /* Data.swift */,
 				C3CCB30D2A89C6A20026EEA8 /* Main.storyboard */,
 				C3CCB3132A89C6A30026EEA8 /* Assets.xcassets */,
 				C3CCB3152A89C6A30026EEA8 /* LaunchScreen.storyboard */,
 				C3CCB3182A89C6A30026EEA8 /* Info.plist */,
 				C3CCB3102A89C6A20026EEA8 /* snsProject.xcdatamodeld */,
-				0843146C2A8CACFF00C7A56E /* Data.swift */,
 			);
 			path = snsProject;
 			sourceTree = "<group>";

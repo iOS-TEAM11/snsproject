@@ -1,10 +1,7 @@
 import UIKit
 
-//protocol ImagePickerManagerDelegate: AnyObject {
-//    func didPickImage(_ image: UIImage)
-//}
-
 class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
@@ -12,24 +9,30 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     let collectionView = MyPageCollectionViewCell()
 
-
+    //인스턴스가 만들어질 때 실행되는 녀석
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let tabController = tabBarController as? TabBarController {
-            myFeedImg = tabController.posts.map { $0.image }
-            print(myFeedImg.count)  // This should print the number of images
-
-        }
+        
         setupCollectionView()
     }
     
     //뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myPageCollectionView.reloadData()
+        
+        if let tabController = tabBarController as? TabBarController {
+            myFeedImg = tabController.posts.map { $0.image }
+            
+            myPageCollectionView.reloadData()
+        }
     }
-
-
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("###viewWillDisppaear")
+    }
+    
     // 메소드 설정
     private func setupCollectionView() {
         // delegate 연결
@@ -68,10 +71,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = indexPath.section
         
-
         switch section {
-            
-        
         
         case 0:
             guard let cell = collectionView.dequeueReusableCell(
@@ -97,6 +97,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             //데이터가져오기
             let img = myFeedImg[indexPath.item]
+            print(myFeedImg.count)
             cell.setPostImage(img)
 
             return cell

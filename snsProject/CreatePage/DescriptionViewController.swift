@@ -43,11 +43,11 @@ class DescriptionViewController: UIViewController {
 private extension DescriptionViewController {
     func setupNavitagionItem() {
         navigationItem.title = "게시물 등록"
-
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(didTapLeftButton))
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "공유", style: .plain, target: self, action: #selector(didTapRightButton))
     }
+    
+    
     @objc func didTapLeftButton() {
         dismiss(animated: true)
     }
@@ -55,11 +55,18 @@ private extension DescriptionViewController {
         guard let tabController = presentingViewController as? TabBarController else {
             return
         }
+        
         let post = Post(image: uploadImage, description: textField.text ?? "")
         tabController.posts.append(post)
         dismiss(animated: true)
         
     }
+    
+    
+    
+
+    
+    
     
     func setupLayout() {
         let imageViewInset: CGFloat = 16.0

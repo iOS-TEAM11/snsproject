@@ -19,10 +19,11 @@ extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
 
         if self.selectedIndex == 2 {
-
-
             imagePickerController.presentImagePicker()
         }
+//        if self.selectedIndex == 4 {
+            
+//        }
     }
 }
 
