@@ -21,10 +21,6 @@ class MyPageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var editButton: UIButton!
     
-    @IBAction func ImgButton(_ sender: Any) {
-        myViewController.presentImagePicker()
-    }
-    
     @IBOutlet weak var addFriendButton: UIButton!
     
     @IBOutlet weak var postingCountLabel: UILabel!

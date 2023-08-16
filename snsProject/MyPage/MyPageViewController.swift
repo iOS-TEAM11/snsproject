@@ -4,9 +4,6 @@ class MyPageViewController: UIViewController {
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
 
-    //let collectionView = MyPageCollectionViewCell()
-    let imagePicker = UIImagePickerController()
-
     let myFeedImg: [String] = [
         "https://static.wikia.nocookie.net/shinchan/images/d/d8/Shinnoske.jpg/revision/latest?cb=20131020030755&path-prefix=ko",
         "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MTBfMjI2%2FMDAxNjg4OTE3MTc2NjI4.LpXG37XqrD-WVQUTbbrrN0oDmQ5_GnQrtKpzKj0UPUQg.MguCJjlR-8hHcFFJoLo4DfVkPzYOiCDzSuEosxDPrXgg.JPEG.ddongddangg%2FIMG_5446.JPG&type=sc960_832",
@@ -16,17 +13,7 @@ class MyPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupCollectionView()
-    }
-
-    func presentImagePicker() {
-
-        imagePicker.sourceType = .photoLibrary
-        //imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-
-        present(imagePicker, animated: true, completion: nil)
     }
 
     // 메소드 설정
