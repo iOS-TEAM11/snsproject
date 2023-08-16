@@ -24,6 +24,10 @@
 		C3CCB32E2A89FE6E0026EEA8 /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB32D2A89FE6E0026EEA8 /* CreatePageViewController.swift */; };
 		C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */; };
 		C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */; };
+		FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */; };
+		FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */; };
+		FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */; };
+		FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		C3CCB32D2A89FE6E0026EEA8 /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
 		C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,8 @@
 		C3CCB3242A89DC6B0026EEA8 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				FB55D8872A8A9AD3000AE663 /* PostCell */,
+				FB55D8822A8A29C2000AE663 /* MyPageCell */,
 				C3CCB32B2A89FE640026EEA8 /* MyPageViewController.swift */,
 				C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */,
 			);
@@ -138,6 +148,24 @@
 				C3CCB32D2A89FE6E0026EEA8 /* CreatePageViewController.swift */,
 			);
 			path = CreatePage;
+			sourceTree = "<group>";
+		};
+		FB55D8822A8A29C2000AE663 /* MyPageCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */,
+				FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */,
+			);
+			path = MyPageCell;
+			sourceTree = "<group>";
+		};
+		FB55D8872A8A9AD3000AE663 /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */,
+				FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */,
+			);
+			path = PostCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,8 +230,10 @@
 				C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */,
 				C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */,
 				C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */,
+				FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */,
 				C3CCB3142A89C6A30026EEA8 /* Assets.xcassets in Resources */,
 				C3CCB30F2A89C6A20026EEA8 /* Main.storyboard in Resources */,
+				FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */,
 				C3CBD8242A8A09F00020A3DE /* Search.storyboard in Resources */,
 				C3CCB32A2A89FBA80026EEA8 /* CreatePage.storyboard in Resources */,
 			);
@@ -223,6 +253,8 @@
 				C3CCB3082A89C6A20026EEA8 /* AppDelegate.swift in Sources */,
 				C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */,
 				C3CCB3122A89C6A20026EEA8 /* snsProject.xcdatamodeld in Sources */,
+				FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */,
+				FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */,
 				C3CBD8262A8A0E830020A3DE /* TabBarController.swift in Sources */,
 				C3CCB30A2A89C6A20026EEA8 /* SceneDelegate.swift in Sources */,
 			);
