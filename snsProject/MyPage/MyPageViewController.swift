@@ -1,14 +1,11 @@
 import UIKit
 
-protocol ImagePickerManagerDelegate: AnyObject {
-    func didPickImage(_ image: UIImage)
-}
-
-class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MyPageViewController: UIViewController {
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
-    
-    let collectionView = MyPageCollectionViewCell()
+
+    //let collectionView = MyPageCollectionViewCell()
+    let imagePicker = UIImagePickerController()
 
     let myFeedImg: [String] = [
         "https://static.wikia.nocookie.net/shinchan/images/d/d8/Shinnoske.jpg/revision/latest?cb=20131020030755&path-prefix=ko",
@@ -21,6 +18,15 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
 
         setupCollectionView()
+    }
+
+    func presentImagePicker() {
+
+        imagePicker.sourceType = .photoLibrary
+        //imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+
+        present(imagePicker, animated: true, completion: nil)
     }
 
     // 메소드 설정
@@ -67,7 +73,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
                 for: indexPath) as? MyPageCollectionViewCell
 
-            //cell.myPageImageView
+            // cell.myPageImageView
             else {
                 // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")

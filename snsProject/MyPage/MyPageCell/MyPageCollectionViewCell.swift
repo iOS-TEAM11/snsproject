@@ -8,6 +8,11 @@
 import UIKit
 
 class MyPageCollectionViewCell: UICollectionViewCell {
+    let myViewController = MyPageViewController()
+    
+//    myViewController.
+//    UIImagePickerController.cellController = self
+    
     static let identifier = "MyPageCollectionViewCell"
     
     @IBOutlet weak var myPageImageView: UIImageView!
@@ -15,6 +20,10 @@ class MyPageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var addProfileImageView: UIImageView!
     
     @IBOutlet weak var editButton: UIButton!
+    
+    @IBAction func ImgButton(_ sender: Any) {
+        myViewController.presentImagePicker()
+    }
     
     @IBOutlet weak var addFriendButton: UIButton!
     
