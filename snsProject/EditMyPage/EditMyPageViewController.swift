@@ -15,6 +15,7 @@ class EditMyPageViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .black
         
         //이미지 버튼 원 작업
         profileImage.layer.cornerRadius = 0.5 * profileImage.bounds.size.width
