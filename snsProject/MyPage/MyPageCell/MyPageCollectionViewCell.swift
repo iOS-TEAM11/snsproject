@@ -8,7 +8,9 @@
 import UIKit
 
 class MyPageCollectionViewCell: UICollectionViewCell {
-    let myViewController = MyPageViewController()
+    
+    
+ //   let myViewController = MyPageViewController() 체크해보기
     
 //    myViewController.
 //    UIImagePickerController.cellController = self
