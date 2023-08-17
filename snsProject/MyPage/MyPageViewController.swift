@@ -7,12 +7,12 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var myFeedImg: [UIImage] = []
 
+
     let collectionView = MyPageCollectionViewCell()
 
     //인스턴스가 만들어질 때 실행되는 녀석
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCollectionView()
     }
     
@@ -78,7 +78,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
                 for: indexPath) as? MyPageCollectionViewCell
 
-            //cell.myPageImageView
+            // cell.myPageImageView
             else {
                 // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")

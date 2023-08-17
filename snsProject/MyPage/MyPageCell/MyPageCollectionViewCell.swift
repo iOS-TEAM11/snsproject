@@ -8,6 +8,11 @@
 import UIKit
 
 class MyPageCollectionViewCell: UICollectionViewCell {
+    let myViewController = MyPageViewController()
+    
+//    myViewController.
+//    UIImagePickerController.cellController = self
+    
     static let identifier = "MyPageCollectionViewCell"
     
     @IBOutlet weak var myPageImageView: UIImageView!
