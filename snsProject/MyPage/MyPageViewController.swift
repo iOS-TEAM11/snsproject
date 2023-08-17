@@ -28,10 +28,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("###viewWillDisppaear")
-    }
+
     
     // 메소드 설정
     private func setupCollectionView() {
