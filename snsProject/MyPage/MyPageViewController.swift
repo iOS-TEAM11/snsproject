@@ -29,10 +29,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("###viewWillDisppaear")
-    }
+
     
     // Segue가 실행되기 전에 데이터를 전달하거나 추가 설정을 할 수 있습니다.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */; };
+		ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */; };
 		083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */; };
 		0843146D2A8CACFF00C7A56E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843146C2A8CACFF00C7A56E /* Data.swift */; };
 		C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMyPage.storyboard; sourceTree = "<group>"; };
+		ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
 		083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		0843146C2A8CACFF00C7A56E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reels.storyboard; sourceTree = "<group>"; };
@@ -77,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACBA4BE52A8A44B8004D6E5A /* EditMyPage */ = {
+			isa = PBXGroup;
+			children = (
+				ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */,
+				ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */,
+			);
+			path = EditMyPage;
+			sourceTree = "<group>";
+		};
 		C3CBD81B2A8A08930020A3DE /* Reels */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +136,7 @@
 		C3CCB3062A89C6A20026EEA8 /* snsProject */ = {
 			isa = PBXGroup;
 			children = (
+				ACBA4BE52A8A44B8004D6E5A /* EditMyPage */,
 				C3CBD8202A8A09D90020A3DE /* Search */,
 				C3CBD81B2A8A08930020A3DE /* Reels */,
 				C3CCB3262A89DCC30026EEA8 /* CreatePage */,
@@ -254,6 +268,7 @@
 				C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */,
 				C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */,
 				C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */,
+				ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */,
 				FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */,
 				C3CCB3142A89C6A30026EEA8 /* Assets.xcassets in Resources */,
 				C3CCB30F2A89C6A20026EEA8 /* Main.storyboard in Resources */,
@@ -276,6 +291,7 @@
 				083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */,
 				C3CCB30C2A89C6A20026EEA8 /* FeedViewController.swift in Sources */,
 				C3CCB3082A89C6A20026EEA8 /* AppDelegate.swift in Sources */,
+				ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */,
 				C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */,
 				C3CCB3122A89C6A20026EEA8 /* snsProject.xcdatamodeld in Sources */,
 				0843146D2A8CACFF00C7A56E /* Data.swift in Sources */,
