@@ -11,6 +11,10 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var feedImage: [UIImage] = []
+    var feedText: [String] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,12 +25,25 @@ class FeedViewController: UIViewController {
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
     }
     
+    //뷰 띄울때 데이터 업데이트
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let tabController = tabBarController as? TabBarController {
+            feedImage = tabController.posts.map { $0.image }
+            feedText = tabController.posts.map { $0.description }
+
+            tableView.reloadData()
+        }
+    }
+    
+    
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     //numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return feedImage.count
     }
     
     //cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
@@ -34,6 +51,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
+        cell.imageViewFeed.image = feedImage[indexPath.row]
+        cell.labelFeed.text = feedText[indexPath.row]
+
         return cell
     }
     
