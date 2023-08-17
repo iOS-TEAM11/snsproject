@@ -36,6 +36,9 @@
                                 <rect key="frame" x="323" y="59" width="53.666666666666686" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="완료"/>
+                                <connections>
+                                    <action selector="enterUserData:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="o8K-3X-s94"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEf-O6-Mfj">
                                 <rect key="frame" x="145.66666666666666" y="239.33333333333334" width="102" height="34.333333333333343"/>
@@ -243,7 +246,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="GZE-DJ-50Y"/>
                     <connections>
-                        <outlet property="profileImage" destination="J63-US-nWE" id="kuc-8Q-V1y"/>
+                        <outlet property="profileImage" destination="J63-US-nWE" id="hXL-27-tRl"/>
+                        <outlet property="tfGender" destination="as6-ld-9Cr" id="gTZ-vE-ueV"/>
+                        <outlet property="tfIntro" destination="Wc0-Z1-zTJ" id="Rjx-NE-7XH"/>
+                        <outlet property="tfLink" destination="afJ-BJ-yBX" id="K6b-IU-yqs"/>
+                        <outlet property="tfName" destination="Jwv-gs-o4f" id="6nj-kA-Qyn"/>
+                        <outlet property="tfNickName" destination="V0Z-sx-ccE" id="b2Z-1G-TSj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
