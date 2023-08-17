@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,6 +35,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <segue destination="Rr7-aQ-DXl" kind="show" identifier="GotoDetailPage" id="5k8-pM-6k5"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -73,6 +77,37 @@
             </objects>
             <point key="canvasLocation" x="611.45038167938924" y="-2.1126760563380285"/>
         </scene>
+        <!--My Page Detail View Controller-->
+        <scene sceneID="1cM-xm-tmZ">
+            <objects>
+                <viewController storyboardIdentifier="myFeedVC" id="Rr7-aQ-DXl" customClass="MyPageDetailViewController" customModule="snsProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DrL-47-DOD">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0r7-ch-ARm">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k2M-eM-b9T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0r7-ch-ARm" firstAttribute="leading" secondItem="k2M-eM-b9T" secondAttribute="leading" id="0RU-cR-a7F"/>
+                            <constraint firstItem="k2M-eM-b9T" firstAttribute="trailing" secondItem="0r7-ch-ARm" secondAttribute="trailing" id="RBl-nb-lWn"/>
+                            <constraint firstItem="0r7-ch-ARm" firstAttribute="top" secondItem="k2M-eM-b9T" secondAttribute="top" id="iVv-eS-I4Q"/>
+                            <constraint firstItem="k2M-eM-b9T" firstAttribute="bottom" secondItem="0r7-ch-ARm" secondAttribute="bottom" id="neu-cx-UqP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bhu-js-FLU"/>
+                    <connections>
+                        <outlet property="tableView" destination="0r7-ch-ARm" id="kGC-YM-kBf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMT-q9-wfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456" y="-2"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="L8g-lz-ffT">
             <objects>
@@ -96,5 +131,8 @@
         <image name="Vector 1" width="30" height="30"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

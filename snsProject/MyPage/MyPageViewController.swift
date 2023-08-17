@@ -6,6 +6,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet var myPageCollectionView: UICollectionView!
     
     var myFeedImg: [UIImage] = []
+    var index = 0
 
 
     let collectionView = MyPageCollectionViewCell()
@@ -33,6 +34,20 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         print("###viewWillDisppaear")
     }
     
+    // Segue가 실행되기 전에 데이터를 전달하거나 추가 설정을 할 수 있습니다.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GotoDetailPage",
+           let selectedRowIndex = sender as? Int,
+           let myPageDetailViewController = segue.destination as? MyPageDetailViewController {
+            
+            // indexPath.row 값을 이용하여 데이터 가져오기
+            let selectedImg = myFeedImg[selectedRowIndex]
+            
+            // 다음 페이지의 ViewController에 데이터 전달
+            myPageDetailViewController.selectedImage = selectedImg
+        }
+    }
+    
     // 메소드 설정
     private func setupCollectionView() {
         // delegate 연결
@@ -57,6 +72,12 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        index = indexPath.row
+        
+        performSegue(withIdentifier: "GotoDetailPage", sender: nil)
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
@@ -77,10 +98,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
                 for: indexPath) as? MyPageCollectionViewCell
-
-            // cell.myPageImageView
             else {
-                // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
             return cell
@@ -91,7 +109,6 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 withReuseIdentifier: PostCollectionViewCell.identifier,
                 for: indexPath) as? PostCollectionViewCell
             else {
-                // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
             
