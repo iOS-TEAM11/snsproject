@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */; };
 		ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */; };
+		083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */; };
+		0843146D2A8CACFF00C7A56E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843146C2A8CACFF00C7A56E /* Data.swift */; };
 		C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */; };
 		C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBD81E2A8A08AF0020A3DE /* ReelsViewController.swift */; };
 		C3CBD8222A8A09E60020A3DE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBD8212A8A09E60020A3DE /* SearchViewController.swift */; };
 		C3CBD8242A8A09F00020A3DE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CBD8232A8A09F00020A3DE /* Search.storyboard */; };
 		C3CBD8262A8A0E830020A3DE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBD8252A8A0E830020A3DE /* TabBarController.swift */; };
+		C3CBD84A2A8B7C9E0020A3DE /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBD8482A8B7C9E0020A3DE /* FeedTableViewCell.swift */; };
+		C3CBD84B2A8B7C9E0020A3DE /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CBD8492A8B7C9E0020A3DE /* FeedTableViewCell.xib */; };
 		C3CCB3082A89C6A20026EEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB3072A89C6A20026EEA8 /* AppDelegate.swift */; };
 		C3CCB30A2A89C6A20026EEA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB3092A89C6A20026EEA8 /* SceneDelegate.swift */; };
 		C3CCB30C2A89C6A20026EEA8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB30B2A89C6A20026EEA8 /* FeedViewController.swift */; };
@@ -23,19 +27,27 @@
 		C3CCB3172A89C6A30026EEA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3152A89C6A30026EEA8 /* LaunchScreen.storyboard */; };
 		C3CCB32A2A89FBA80026EEA8 /* CreatePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3292A89FBA80026EEA8 /* CreatePage.storyboard */; };
 		C3CCB32C2A89FE640026EEA8 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB32B2A89FE640026EEA8 /* MyPageViewController.swift */; };
-		C3CCB32E2A89FE6E0026EEA8 /* CreatePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB32D2A89FE6E0026EEA8 /* CreatePageViewController.swift */; };
+		C3CCB32E2A89FE6E0026EEA8 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CCB32D2A89FE6E0026EEA8 /* ImagePickerController.swift */; };
 		C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */; };
 		C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */; };
+		FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */; };
+		FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */; };
+		FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */; };
+		FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMyPage.storyboard; sourceTree = "<group>"; };
 		ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
+		083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		0843146C2A8CACFF00C7A56E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reels.storyboard; sourceTree = "<group>"; };
 		C3CBD81E2A8A08AF0020A3DE /* ReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsViewController.swift; sourceTree = "<group>"; };
 		C3CBD8212A8A09E60020A3DE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C3CBD8232A8A09F00020A3DE /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C3CBD8252A8A0E830020A3DE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C3CBD8482A8B7C9E0020A3DE /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		C3CBD8492A8B7C9E0020A3DE /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		C3CCB3042A89C6A20026EEA8 /* snsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CCB3072A89C6A20026EEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3CCB3092A89C6A20026EEA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,9 +59,13 @@
 		C3CCB3182A89C6A30026EEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3CCB3292A89FBA80026EEA8 /* CreatePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePage.storyboard; sourceTree = "<group>"; };
 		C3CCB32B2A89FE640026EEA8 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		C3CCB32D2A89FE6E0026EEA8 /* CreatePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePageViewController.swift; sourceTree = "<group>"; };
+		C3CCB32D2A89FE6E0026EEA8 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +106,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		C3CBD8472A8B7C680020A3DE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C3CBD8482A8B7C9E0020A3DE /* FeedTableViewCell.swift */,
+				C3CBD8492A8B7C9E0020A3DE /* FeedTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C3CCB2FB2A89C6A20026EEA8 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +143,7 @@
 				C3CCB3072A89C6A20026EEA8 /* AppDelegate.swift */,
 				C3CCB3092A89C6A20026EEA8 /* SceneDelegate.swift */,
 				C3CBD8252A8A0E830020A3DE /* TabBarController.swift */,
+				0843146C2A8CACFF00C7A56E /* Data.swift */,
 				C3CCB30D2A89C6A20026EEA8 /* Main.storyboard */,
 				C3CCB3132A89C6A30026EEA8 /* Assets.xcassets */,
 				C3CCB3152A89C6A30026EEA8 /* LaunchScreen.storyboard */,
@@ -130,6 +156,7 @@
 		C3CCB3222A89DC290026EEA8 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				C3CBD8472A8B7C680020A3DE /* Cell */,
 				C3CCB30B2A89C6A20026EEA8 /* FeedViewController.swift */,
 				C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */,
 			);
@@ -139,6 +166,8 @@
 		C3CCB3242A89DC6B0026EEA8 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				FB55D8872A8A9AD3000AE663 /* PostCell */,
+				FB55D8822A8A29C2000AE663 /* MyPageCell */,
 				C3CCB32B2A89FE640026EEA8 /* MyPageViewController.swift */,
 				C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */,
 			);
@@ -149,9 +178,28 @@
 			isa = PBXGroup;
 			children = (
 				C3CCB3292A89FBA80026EEA8 /* CreatePage.storyboard */,
-				C3CCB32D2A89FE6E0026EEA8 /* CreatePageViewController.swift */,
+				C3CCB32D2A89FE6E0026EEA8 /* ImagePickerController.swift */,
+				083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */,
 			);
 			path = CreatePage;
+			sourceTree = "<group>";
+		};
+		FB55D8822A8A29C2000AE663 /* MyPageCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */,
+				FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */,
+			);
+			path = MyPageCell;
+			sourceTree = "<group>";
+		};
+		FB55D8872A8A9AD3000AE663 /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB718FE42A8BA75500B851D3 /* PostCollectionViewCell.swift */,
+				FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */,
+			);
+			path = PostCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,13 +260,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3CBD84B2A8B7C9E0020A3DE /* FeedTableViewCell.xib in Resources */,
 				C3CCB3172A89C6A30026EEA8 /* LaunchScreen.storyboard in Resources */,
 				C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */,
 				C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */,
 				C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */,
 				ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */,
+				FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */,
 				C3CCB3142A89C6A30026EEA8 /* Assets.xcassets in Resources */,
 				C3CCB30F2A89C6A20026EEA8 /* Main.storyboard in Resources */,
+				FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */,
 				C3CBD8242A8A09F00020A3DE /* Search.storyboard in Resources */,
 				C3CCB32A2A89FBA80026EEA8 /* CreatePage.storyboard in Resources */,
 			);
@@ -231,16 +282,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3CCB32E2A89FE6E0026EEA8 /* CreatePageViewController.swift in Sources */,
+				C3CCB32E2A89FE6E0026EEA8 /* ImagePickerController.swift in Sources */,
 				C3CCB32C2A89FE640026EEA8 /* MyPageViewController.swift in Sources */,
 				C3CBD8222A8A09E60020A3DE /* SearchViewController.swift in Sources */,
+				083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */,
 				C3CCB30C2A89C6A20026EEA8 /* FeedViewController.swift in Sources */,
 				C3CCB3082A89C6A20026EEA8 /* AppDelegate.swift in Sources */,
 				ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */,
 				C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */,
 				C3CCB3122A89C6A20026EEA8 /* snsProject.xcdatamodeld in Sources */,
+				0843146D2A8CACFF00C7A56E /* Data.swift in Sources */,
+				FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */,
+				FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */,
 				C3CBD8262A8A0E830020A3DE /* TabBarController.swift in Sources */,
 				C3CCB30A2A89C6A20026EEA8 /* SceneDelegate.swift in Sources */,
+				C3CBD84A2A8B7C9E0020A3DE /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -370,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -395,6 +451,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,6 +480,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
