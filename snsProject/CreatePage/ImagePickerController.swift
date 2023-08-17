@@ -31,8 +31,8 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             selectedImage = originImage
         }
         
-        picker.dismiss(animated: true) {
-            guard let tabController = self.tabController else { return }
+        picker.dismiss(animated: true) { [weak self] in
+            guard let tabController = self?.tabController else { return }
             let descriptionViewController = DescriptionViewController(uploadImage: selectedImage ?? UIImage())
             let navigationController = UINavigationController(rootViewController: descriptionViewController)
             navigationController.modalPresentationStyle = .fullScreen

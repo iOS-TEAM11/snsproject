@@ -43,6 +43,8 @@ class FeedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
         // Initialization code
         //좋아요 밑에 아이디 bold설정
         let fontSize = UIFont.boldSystemFont(ofSize: 15)
@@ -51,6 +53,7 @@ class FeedTableViewCell: UITableViewCell {
         attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
         
         labelFeed.attributedText = attributedStr
+  
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
