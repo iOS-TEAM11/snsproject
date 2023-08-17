@@ -98,6 +98,9 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             else {
                 fatalError("cell을 불러오지 못하였습니다")
             }
+            
+            cell.parentViewController = self
+            
             return cell
             
             
