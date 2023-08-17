@@ -9,12 +9,6 @@ import UIKit
 
 class MyPageCollectionViewCell: UICollectionViewCell {
     
-    
- //   let myViewController = MyPageViewController() 체크해보기
-    
-//    myViewController.
-//    UIImagePickerController.cellController = self
-    
     static let identifier = "MyPageCollectionViewCell"
     
     @IBOutlet weak var myPageImageView: UIImageView!
@@ -27,9 +21,16 @@ class MyPageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var postingCountLabel: UILabel!
     
+    weak var parentViewController: UIViewController?
+    
     @IBAction func goToEditPage(_ sender: Any) {
-        
+        print("1")
+        let storyBoard = UIStoryboard(name: "EditMyPage", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "EditMyPageViewController") as! EditMyPageViewController
+
+        parentViewController?.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBOutlet weak var followerCountLabel: UILabel!
     
     @IBOutlet weak var followingCountLabel: UILabel!
