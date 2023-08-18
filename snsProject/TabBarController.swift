@@ -3,7 +3,9 @@ import UIKit
 class TabBarController: UITabBarController {
 
     var posts: [Post] = []
-
+    var userData: [UserDatum] = []
+    
+    
     private let imagePickerController = ImagePickerController()
 
     override func viewDidLoad() {

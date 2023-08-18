@@ -32,6 +32,21 @@ class EditMyPageViewController: UIViewController{
         profileImage.clipsToBounds = true
     }
     
+    //뷰 띄울때 데이터 업데이트
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let tabController = tabBarController as? TabBarController {
+            userName = tabController.userData.map { $0.userName }
+            userNickName = tabController.userData.map { $0.userNickName }
+            userGender = tabController.userData.map { $0.userGender }
+            userIntro = tabController.userData.map { $0.userIntro }
+            userLink = tabController.userData.map { $0.userLink }
+            
+        }
+    }
+    
+    
    
     @IBAction func enterUserData(_ sender: Any) {
     

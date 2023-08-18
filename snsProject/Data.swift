@@ -14,7 +14,7 @@ struct UserDatum {
     let userImage: UIImage
     let userName: String
     let userNickName: String
-    let userGebder: Bool
+    let userGender: String
     let userIntro: String
     let userLink: String
 }
