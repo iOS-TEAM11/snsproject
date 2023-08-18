@@ -10,7 +10,7 @@ import UIKit
 class FeedViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    var userId = "iOS_TEAM11"
+    var userId = "iOS_TEAM11 "
     
     override func viewDidLoad() {
         super.viewDidLoad()
