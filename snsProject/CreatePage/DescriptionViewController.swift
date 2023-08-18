@@ -57,7 +57,7 @@ private extension DescriptionViewController {
         }
         
         let post = Post(image: uploadImage, description: textField.text ?? "")
-        tabController.posts.append(post)
+        tabController.posts.insert(post, at: 0)
         dismiss(animated: true)
         
     }
