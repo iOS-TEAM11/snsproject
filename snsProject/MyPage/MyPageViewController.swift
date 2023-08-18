@@ -4,7 +4,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
-    var myFeedImg: [UIImage] = []
     var longPressGesture: UILongPressGestureRecognizer! // 길게 누르기 동작
 
     let collectionView = MyPageCollectionViewCell()
@@ -37,7 +36,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
             if let indexPath = myPageCollectionView.indexPathForItem(at: touchPoint) {
                 showActionButtons(at: indexPath)
             }
-            print("^^?: \(DataManager.shared.posts.count)")
         }
     }
     
