@@ -8,6 +8,7 @@ class DataManager {
     
     var myFeedImg: [UIImage] = []
     var myFeedText: [String] = []
+    var posts: [Post] = []
     
     private init() {
         

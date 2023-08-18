@@ -30,7 +30,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .began {
-            // 긴 누름 동작이 시작되었을 때
+            // 꾹 눌린 동작이 시작되었을 때
             let touchPoint = gestureRecognizer.location(in: myPageCollectionView)
             if let indexPath = myPageCollectionView.indexPathForItem(at: touchPoint) {
                 showActionButtons(at: indexPath)
@@ -38,18 +38,17 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    // 수정하기 클릭시 작동되는 함수
     func showEditViewController(at indexPath: IndexPath) {
-//        guard let tabController = tabBarController as? TabBarController else {
-//            return
-//        }
-        
         let editViewController = EditViewController(uploadImage: DataManager.shared.myFeedImg[indexPath.row])
-        
-//        editViewController.textField.text = DataManager.shared.myFeedText[indexPath.row]
         editViewController.indexPath = indexPath.row
-        // 모달로 띄우기
-        present(editViewController, animated: true, completion: nil)
+        
+        let navigationController = UINavigationController(rootViewController: editViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        
+        present(navigationController, animated: true, completion: nil)
     }
+    
 
     func showActionButtons(at indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
