@@ -61,12 +61,7 @@ private extension DescriptionViewController {
         dismiss(animated: true)
         
     }
-    
-    
-    
 
-    
-    
     
     func setupLayout() {
         let imageViewInset: CGFloat = 16.0
