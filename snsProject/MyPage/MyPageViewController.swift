@@ -6,8 +6,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet var myPageCollectionView: UICollectionView!
     
     var myFeedImg: [UIImage] = []
-    var index = 0
-
 
     let collectionView = MyPageCollectionViewCell()
 
@@ -25,23 +23,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
             myFeedImg = tabController.posts.map { $0.image }
             
             myPageCollectionView.reloadData()
-        }
-    }
-    
-    
-
-    
-    // Segue가 실행되기 전에 데이터를 전달하거나 추가 설정을 할 수 있습니다.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GotoDetailPage",
-           let selectedRowIndex = sender as? Int,
-           let myPageDetailViewController = segue.destination as? MyPageDetailViewController {
-            
-            // indexPath.row 값을 이용하여 데이터 가져오기
-            let selectedImg = myFeedImg[selectedRowIndex]
-            
-            // 다음 페이지의 ViewController에 데이터 전달
-            myPageDetailViewController.selectedImage = selectedImg
         }
     }
     
@@ -71,9 +52,8 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        index = indexPath.row
-        
-        performSegue(withIdentifier: "GotoDetailPage", sender: nil)
+        print("index!!!: \(indexPath.row)")
+        performSegue(withIdentifier: "GotoDetailPage", sender: indexPath.row)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,7 +95,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             //데이터가져오기
             let img = myFeedImg[indexPath.item]
-            print(myFeedImg.count)
+            //print(myFeedImg.count)
             cell.setPostImage(img)
 
             return cell
