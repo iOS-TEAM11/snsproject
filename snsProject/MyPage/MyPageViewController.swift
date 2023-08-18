@@ -1,7 +1,6 @@
 import UIKit
 
 class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
@@ -9,13 +8,13 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     let collectionView = MyPageCollectionViewCell()
 
-    //인스턴스가 만들어질 때 실행되는 녀석
+    // 인스턴스가 만들어질 때 실행되는 녀석
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
     }
     
-    //뷰 띄울때 데이터 업데이트
+    // 뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -50,12 +49,22 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("index!!!: \(indexPath.row)")
-        performSegue(withIdentifier: "GotoDetailPage", sender: indexPath.row)
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GotoDetailPage",
+           let detailVC = segue.destination as? MyPageDetailViewController,
+           let indexPath = sender as? Int {
+            detailVC.selectedImage = myFeedImg[indexPath]
+            detailVC.selectedIndexPath = indexPath
+        }
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // print("index!!!: \(indexPath.row)")
+        
+        performSegue(withIdentifier: "GotoDetailPage", sender: indexPath.row)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -70,7 +79,6 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let section = indexPath.section
         
         switch section {
-        
         case 0:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
@@ -84,7 +92,6 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             return cell
             
-            
         default:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: PostCollectionViewCell.identifier,
@@ -93,9 +100,9 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 fatalError("cell을 불러오지 못하였습니다")
             }
             
-            //데이터가져오기
+            // 데이터가져오기
             let img = myFeedImg[indexPath.item]
-            //print(myFeedImg.count)
+            // print(myFeedImg.count)
             cell.setPostImage(img)
 
             return cell

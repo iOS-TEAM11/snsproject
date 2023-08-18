@@ -8,6 +8,8 @@ class MyPageDetailViewController: UIViewController {
     var feedText: [String] = []
     var selectedImage: UIImage?
     
+    var selectedIndexPath: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,11 +25,13 @@ class MyPageDetailViewController: UIViewController {
         if let tabBarController = tabBarController as? TabBarController {
             feedImg = tabBarController.posts.map{ $0.image }
             feedText = tabBarController.posts.map{ $0.description }
+            let indexPath:IndexPath = IndexPath(row: selectedIndexPath!, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
             
             tableView.reloadData()
         }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         print("viewwillDisappear")
         //다른 tabBar icon을 누를 시, 강제로 view 빼주기
@@ -56,3 +60,4 @@ extension MyPageDetailViewController: UITableViewDelegate, UITableViewDataSource
          return 600
     }
   }
+
