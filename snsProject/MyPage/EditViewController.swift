@@ -53,6 +53,7 @@ private extension EditViewController {
 
         let post = Post(image: uploadImage, description: textField.text ?? "")
         tabController.posts.insert(post, at: 0)
+        
         dismiss(animated: true)
     }
 
@@ -83,7 +84,6 @@ private extension EditViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: imageViewInset),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: imageViewInset),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: imageViewInset),
-
         ])
     }
 }
