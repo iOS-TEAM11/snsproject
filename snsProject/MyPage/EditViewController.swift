@@ -7,12 +7,9 @@ class EditViewController: UIViewController {
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 15.0)
-        if let indexPath = indexPath, indexPath < DataManager.shared.myFeedText.count {
-            textField.text = DataManager.shared.myFeedText[indexPath]
+        if let indexPath = indexPath, indexPath < DataManager.shared.posts.count {
+            textField.text = DataManager.shared.posts[indexPath].description
         }
-        // textField.text = DataManager.shared.myFeedText[indexPath!]
-        // textField.placeholder = "게시글을 입력해주세요"
-
         return textField
     }()
 
@@ -52,7 +49,7 @@ private extension EditViewController {
         }
 
         let post = Post(image: uploadImage, description: textField.text ?? "")
-        tabController.posts.insert(post, at: 0)
+        DataManager.shared.posts.insert(post, at: 0)
         
         dismiss(animated: true)
     }

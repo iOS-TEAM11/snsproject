@@ -40,11 +40,6 @@ class FeedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-
-        if let tabController = tabBarController as? TabBarController {
-            feedImage.append(contentsOf: tabController.posts.map { $0.image })
-            feedText.append(contentsOf: tabController.posts.map { $0.description })
-        }
         tableView.reloadData()
     }
 }

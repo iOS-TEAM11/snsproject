@@ -5,9 +5,6 @@ import UIKit
 class DataManager {
     //싱글톤 패턴
     static let shared = DataManager()
-    
-    var myFeedImg: [UIImage] = []
-    var myFeedText: [String] = []
     var posts: [Post] = []
     
     private init() {
