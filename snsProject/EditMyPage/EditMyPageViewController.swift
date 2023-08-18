@@ -15,11 +15,6 @@ class EditMyPageViewController: UIViewController {
     var userIntro: [String] = []
     var userLink: [String] = []
     
-    var userName: [String] = []
-    var userNickName: [String] = []
-    var userGender: [String] = []
-    var userIntro: [String] = []
-    var userLink: [String] = []
     
     @IBOutlet weak var profileImage: UIButton!
 
