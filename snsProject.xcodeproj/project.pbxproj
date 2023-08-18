@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */; };
-		ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */; };
 		083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */; };
 		0843146D2A8CACFF00C7A56E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843146C2A8CACFF00C7A56E /* Data.swift */; };
+		ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */; };
+		ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */; };
 		C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */; };
 		C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBD81E2A8A08AF0020A3DE /* ReelsViewController.swift */; };
 		C3CBD8222A8A09E60020A3DE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CBD8212A8A09E60020A3DE /* SearchViewController.swift */; };
@@ -37,10 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMyPage.storyboard; sourceTree = "<group>"; };
-		ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
 		083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		0843146C2A8CACFF00C7A56E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMyPage.storyboard; sourceTree = "<group>"; };
+		ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
 		C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reels.storyboard; sourceTree = "<group>"; };
 		C3CBD81E2A8A08AF0020A3DE /* ReelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsViewController.swift; sourceTree = "<group>"; };
 		C3CBD8212A8A09E60020A3DE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
