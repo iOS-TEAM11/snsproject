@@ -30,7 +30,17 @@ class EditMyPageViewController: UIViewController{
         //이미지 버튼 원 작업
         profileImage.layer.cornerRadius = 0.5 * profileImage.bounds.size.width
         profileImage.clipsToBounds = true
+        
+        navigationItem.title = "프로필 편집"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(enterUserData))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(backButton))
+        
     }
+
+    @objc private func backButton() {
+        navigationController?.popViewController(animated: true)
+    }
+   
     
     //뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +101,8 @@ class EditMyPageViewController: UIViewController{
             return
         }
 
-        
+     
+        backButton()
 
         
         
