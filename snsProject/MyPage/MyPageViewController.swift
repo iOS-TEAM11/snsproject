@@ -4,7 +4,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
-    var myFeedImg: [UIImage] = []
+    //var myFeedImg: [UIImage] = []
+    var longPressGesture: UILongPressGestureRecognizer! // 길게 누르기 동작
 
     let collectionView = MyPageCollectionViewCell()
 
@@ -18,13 +19,48 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        
+        myPageCollectionView.addGestureRecognizer(longPressGesture)
         if let tabController = tabBarController as? TabBarController {
-            myFeedImg = tabController.posts.map { $0.image }
-            
+            DataManager.shared.myFeedImg = tabController.posts.map { $0.image}
             myPageCollectionView.reloadData()
         }
     }
     
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state == .began {
+            // 긴 누름 동작이 시작되었을 때
+            let touchPoint = gestureRecognizer.location(in: myPageCollectionView)
+            if let indexPath = myPageCollectionView.indexPathForItem(at: touchPoint) {
+                showActionButtons(at: indexPath)
+            }
+        }
+    }
+
+    func showActionButtons(at indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+           
+        let editAction = UIAlertAction(title: "수정하기", style: .default) { [weak self] _ in
+            // 수정하기 구현
+            
+        }
+           
+        let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive) { [weak self] _ in
+            // 삭제하기 구현
+            DataManager.shared.myFeedImg.remove(at: indexPath.row)
+            self?.myPageCollectionView.reloadData()
+        }
+           
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+           
+        alert.addAction(editAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+           
+        present(alert, animated: true, completion: nil)
+    }
+
     // 메소드 설정
     private func setupCollectionView() {
         // delegate 연결
@@ -53,8 +89,9 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GotoDetailPage",
            let detailVC = segue.destination as? MyPageDetailViewController,
-           let indexPath = sender as? Int {
-            detailVC.selectedImage = myFeedImg[indexPath]
+           let indexPath = sender as? Int
+        {
+            detailVC.selectedImage = DataManager.shared.myFeedImg[indexPath]
             detailVC.selectedIndexPath = indexPath
         }
     }
@@ -70,7 +107,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 0:
             return 1
         default:
-            return myFeedImg.count
+            return DataManager.shared.myFeedImg.count
         }
     }
 
@@ -88,7 +125,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             cell.parentViewController = self
-            cell.postingCountLabel.text = String(myFeedImg.count)
+            cell.postingCountLabel.text = String(DataManager.shared.myFeedImg.count)
             
             return cell
             
@@ -101,7 +138,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             // 데이터가져오기
-            let img = myFeedImg[indexPath.item]
+            let img = DataManager.shared.myFeedImg[indexPath.item]
             // print(myFeedImg.count)
             cell.setPostImage(img)
 

@@ -2,6 +2,18 @@
 import UIKit
 
 // 게시물 저장 데이터
+class DataManager {
+    //싱글톤 패턴
+    static let shared = DataManager()
+    
+    var myFeedImg: [UIImage] = []
+    var myFeedText: [String] = []
+    
+    private init() {
+        
+    }
+}
+
 
 struct Post {
     let image: UIImage 

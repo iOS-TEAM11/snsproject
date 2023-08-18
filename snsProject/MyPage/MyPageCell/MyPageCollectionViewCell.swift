@@ -1,10 +1,3 @@
-//
-//  MyPageCollectionViewCell.swift
-//  snsProject
-//
-//  Created by t2023-m0050 on 2023/08/14.
-//
-
 import UIKit
 
 class MyPageCollectionViewCell: UICollectionViewCell {
@@ -55,7 +48,7 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         addFriendButton.layer.borderColor = UIColor.lightGray.cgColor
         addFriendButton.layer.borderWidth = 1
         
-        postingCountLabel.text = String(MyPageViewController().myFeedImg.count)
+        postingCountLabel.text = String(DataManager.shared.myFeedImg.count)
         
         [followerCountLabel, followingCountLabel].forEach { $0?.text = "\(Int.random(in: 0...10))"}
     }
