@@ -57,16 +57,11 @@ private extension DescriptionViewController {
         }
         
         let post = Post(image: uploadImage, description: textField.text ?? "")
-        tabController.posts.append(post)
+        tabController.posts.insert(post, at: 0)
         dismiss(animated: true)
         
     }
-    
-    
-    
 
-    
-    
     
     func setupLayout() {
         let imageViewInset: CGFloat = 16.0

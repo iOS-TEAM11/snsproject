@@ -7,7 +7,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     var myFeedImg: [UIImage] = []
 
-
     let collectionView = MyPageCollectionViewCell()
 
     //인스턴스가 만들어질 때 실행되는 녀석
@@ -26,9 +25,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
             myPageCollectionView.reloadData()
         }
     }
-    
-    
-
     
     // 메소드 설정
     private func setupCollectionView() {
@@ -54,6 +50,11 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("index!!!: \(indexPath.row)")
+        performSegue(withIdentifier: "GotoDetailPage", sender: indexPath.row)
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
@@ -74,12 +75,13 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: MyPageCollectionViewCell.identifier,
                 for: indexPath) as? MyPageCollectionViewCell
-
-            // cell.myPageImageView
             else {
-                // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
+            
+            cell.parentViewController = self
+            cell.postingCountLabel.text = String(myFeedImg.count)
+            
             return cell
             
             
@@ -88,13 +90,12 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 withReuseIdentifier: PostCollectionViewCell.identifier,
                 for: indexPath) as? PostCollectionViewCell
             else {
-                // return UICollectionViewCell()
                 fatalError("cell을 불러오지 못하였습니다")
             }
             
             //데이터가져오기
             let img = myFeedImg[indexPath.item]
-            print(myFeedImg.count)
+            //print(myFeedImg.count)
             cell.setPostImage(img)
 
             return cell
