@@ -7,7 +7,7 @@
 // ***********    푸시 전 인포 변경    ************
 import UIKit
 
-class EditMyPageViewController: UIViewController{
+class EditMyPageViewController: UIViewController {
     
     var userName: [String] = []
     var userNickName: [String] = []
@@ -33,14 +33,13 @@ class EditMyPageViewController: UIViewController{
         
         navigationItem.title = "프로필 편집"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(enterUserData))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(backButton))
-        
-    }
-
-    @objc private func backButton() {
-        navigationController?.popViewController(animated: true)
+       // navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelEditing))
     }
    
+    @objc func cancelEditing() {
+        // 이전 뷰 컨트롤러로 돌아가는 코드 추가
+        navigationController?.popViewController(animated: true)
+    }
     
     //뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +53,7 @@ class EditMyPageViewController: UIViewController{
             userLink = tabController.userData.map { $0.userLink }
             
         }
+        
     }
     
     
@@ -99,12 +99,10 @@ class EditMyPageViewController: UIViewController{
         } else {
             showAlert(message: "성별을 다시 입력해주세요")
             return
+            
         }
-
-     
-        backButton()
-
         
+        cancelEditing()
         
         func showAlert(message: String) {
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -112,6 +110,7 @@ class EditMyPageViewController: UIViewController{
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         }
+        
     }
     
 }
