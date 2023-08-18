@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,15 +32,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-de-Agf">
-                        <rect key="frame" x="457" y="10" width="25" height="25"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="25" id="2yK-b7-KVH"/>
-                            <constraint firstAttribute="width" constant="25" id="3VQ-0a-3ng"/>
-                        </constraints>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Button" image="dot"/>
-                    </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img-05" translatesAutoresizingMaskIntoConstraints="NO" id="yM9-OZ-d1F">
                         <rect key="frame" x="0.0" y="45" width="492" height="492"/>
                         <constraints>
@@ -115,12 +107,30 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="Shape"/>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRR-ns-t0T">
+                        <rect key="frame" x="457" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="M3J-Wr-QsA"/>
+                            <constraint firstAttribute="width" constant="25" id="bVh-L8-OEk"/>
+                        </constraints>
+                        <menu key="menu" id="sR8-wV-Zy2">
+                            <children>
+                                <command title="Item 1" id="7bc-H7-S38"/>
+                                <command title="Item 2" id="RRq-9M-ISH"/>
+                            </children>
+                        </menu>
+                        <state key="normal" title="Button" image="dot"/>
+                        <connections>
+                            <action selector="popUpButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5K2-Ur-5xb"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Kz7-AH-tQE" firstAttribute="centerY" secondItem="poN-oG-7Mr" secondAttribute="centerY" id="05j-GU-0zi"/>
                     <constraint firstItem="290-1t-san" firstAttribute="leading" secondItem="Dho-pf-SJj" secondAttribute="leading" id="2fs-e9-FiA"/>
                     <constraint firstItem="6W7-a5-Dcb" firstAttribute="top" secondItem="poN-oG-7Mr" secondAttribute="bottom" constant="10" id="33A-L8-vA0"/>
                     <constraint firstItem="yM9-OZ-d1F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Ft-Wd-ZjM"/>
+                    <constraint firstAttribute="trailing" secondItem="gRR-ns-t0T" secondAttribute="trailing" constant="10" id="8bf-CU-oc0"/>
                     <constraint firstItem="NBl-4s-HIR" firstAttribute="height" secondItem="290-1t-san" secondAttribute="height" multiplier="1.36" id="8gS-cs-RxL"/>
                     <constraint firstItem="Dho-pf-SJj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9mC-Mj-0na"/>
                     <constraint firstItem="bTf-nd-32C" firstAttribute="trailing" secondItem="MSf-3Y-euT" secondAttribute="trailing" id="HhJ-pX-W9G"/>
@@ -128,7 +138,6 @@
                     <constraint firstItem="bTf-nd-32C" firstAttribute="top" secondItem="6W7-a5-Dcb" secondAttribute="bottom" constant="10" id="LvP-nF-fqW"/>
                     <constraint firstItem="290-1t-san" firstAttribute="top" secondItem="bTf-nd-32C" secondAttribute="bottom" constant="13" id="Mkh-cW-n3C"/>
                     <constraint firstItem="Dho-pf-SJj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="NX2-W6-Iwc"/>
-                    <constraint firstItem="cDf-de-Agf" firstAttribute="centerY" secondItem="Dho-pf-SJj" secondAttribute="centerY" id="Nqu-2p-gGe"/>
                     <constraint firstItem="wOf-Oq-0Af" firstAttribute="leading" secondItem="Kz7-AH-tQE" secondAttribute="trailing" constant="13" id="P6U-Xa-pDO"/>
                     <constraint firstItem="yM9-OZ-d1F" firstAttribute="top" secondItem="Dho-pf-SJj" secondAttribute="bottom" constant="10" id="Py0-tI-056"/>
                     <constraint firstItem="poN-oG-7Mr" firstAttribute="top" secondItem="yM9-OZ-d1F" secondAttribute="bottom" constant="10" id="RTR-B6-2NO"/>
@@ -138,13 +147,13 @@
                     <constraint firstItem="MSf-3Y-euT" firstAttribute="top" secondItem="yM9-OZ-d1F" secondAttribute="bottom" constant="10" id="ccA-cz-sTo"/>
                     <constraint firstAttribute="trailing" secondItem="MSf-3Y-euT" secondAttribute="trailing" constant="17" id="e4t-Rc-iO1"/>
                     <constraint firstAttribute="trailing" secondItem="yM9-OZ-d1F" secondAttribute="trailing" id="gFp-c8-qwk"/>
-                    <constraint firstAttribute="trailing" secondItem="cDf-de-Agf" secondAttribute="trailing" constant="10" id="j96-MU-zcC"/>
                     <constraint firstItem="JjT-L0-wqs" firstAttribute="leading" secondItem="Dho-pf-SJj" secondAttribute="trailing" constant="10" id="q6Y-2H-VZp"/>
                     <constraint firstItem="bTf-nd-32C" firstAttribute="leading" secondItem="6W7-a5-Dcb" secondAttribute="leading" id="qAF-Cn-9IH"/>
                     <constraint firstItem="Kz7-AH-tQE" firstAttribute="leading" secondItem="poN-oG-7Mr" secondAttribute="trailing" constant="13" id="qao-Qv-bL7"/>
                     <constraint firstItem="NBl-4s-HIR" firstAttribute="leading" secondItem="290-1t-san" secondAttribute="trailing" constant="7" id="r7E-2I-yCv"/>
                     <constraint firstItem="6W7-a5-Dcb" firstAttribute="leading" secondItem="poN-oG-7Mr" secondAttribute="leading" id="rdS-zA-s30"/>
                     <constraint firstItem="JjT-L0-wqs" firstAttribute="centerY" secondItem="Dho-pf-SJj" secondAttribute="centerY" id="tF9-Y3-Mk3"/>
+                    <constraint firstItem="gRR-ns-t0T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ttW-Xd-udu"/>
                     <constraint firstItem="wOf-Oq-0Af" firstAttribute="centerY" secondItem="poN-oG-7Mr" secondAttribute="centerY" id="wAE-AG-v2J"/>
                 </constraints>
             </tableViewCellContentView>

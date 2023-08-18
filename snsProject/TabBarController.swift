@@ -13,7 +13,8 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         self.selectedIndex = 0
         self.delegate = self
-        imagePickerController.tabController = self  
+        imagePickerController.tabController = self
+        
 
     }
     

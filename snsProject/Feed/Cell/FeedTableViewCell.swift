@@ -25,6 +25,15 @@ class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageViewMyProfile: UIImageView!
     
+    @IBAction func popUpButton(_ sender: Any) {
+        
+            print("popup")
+    }
+    
+
+    
+    
+    
     @IBAction func actionIsHeart(_ sender: Any) {
         if buttonIsHeart.isSelected {  //true면 클릭이 되어있는 거니까 false로 클릭을 풀어줌
             buttonIsHeart.isSelected = false
