@@ -2,7 +2,8 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
-    var posts: [Post] = []
+    //var posts: [Post] = []
+    var posts = DataManager.shared.posts
     var userData: [UserDatum] = []
     
     
@@ -35,9 +36,6 @@ extension TabBarController: UITabBarControllerDelegate {
         if self.selectedIndex == 2 {
             imagePickerController.presentImagePicker()
         }
-//        if self.selectedIndex == 4 {
-            
-//        }
     }
 }
 
