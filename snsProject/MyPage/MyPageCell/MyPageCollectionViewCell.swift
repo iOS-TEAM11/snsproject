@@ -50,6 +50,6 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         
         postingCountLabel.text = String(DataManager.shared.myFeedImg.count)
         
-        [followerCountLabel, followingCountLabel].forEach { $0?.text = "\(Int.random(in: 0...10))"}
+        [followerCountLabel, followingCountLabel].forEach { $0?.text = "\(Int.random(in: 100...300))"}
     }
 }

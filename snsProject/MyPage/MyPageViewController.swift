@@ -4,7 +4,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
-    //var myFeedImg: [UIImage] = []
+    // var myFeedImg: [UIImage] = []
     var longPressGesture: UILongPressGestureRecognizer! // 길게 누르기 동작
 
     let collectionView = MyPageCollectionViewCell()
@@ -23,7 +23,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         myPageCollectionView.addGestureRecognizer(longPressGesture)
         if let tabController = tabBarController as? TabBarController {
-            DataManager.shared.myFeedImg = tabController.posts.map { $0.image}
+            DataManager.shared.myFeedImg = tabController.posts.map { $0.image }
             myPageCollectionView.reloadData()
         }
     }
@@ -37,13 +37,26 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
     }
+    
+    func showEditViewController(at indexPath: IndexPath) {
+//        guard let tabController = tabBarController as? TabBarController else {
+//            return
+//        }
+        
+        let editViewController = EditViewController(uploadImage: DataManager.shared.myFeedImg[indexPath.row])
+        
+//        editViewController.textField.text = DataManager.shared.myFeedText[indexPath.row]
+        editViewController.indexPath = indexPath.row
+        // 모달로 띄우기
+        present(editViewController, animated: true, completion: nil)
+    }
 
     func showActionButtons(at indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
            
         let editAction = UIAlertAction(title: "수정하기", style: .default) { [weak self] _ in
             // 수정하기 구현
-            
+            self?.showEditViewController(at: indexPath)
         }
            
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive) { [weak self] _ in
