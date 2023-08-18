@@ -100,6 +100,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             cell.parentViewController = self
+            cell.postingCountLabel.text = String(myFeedImg.count)
             
             return cell
             
