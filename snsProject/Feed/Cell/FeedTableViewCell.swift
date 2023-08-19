@@ -7,6 +7,13 @@
 
 import UIKit
 
+
+protocol FeedTableViewCellDelegate: AnyObject {
+    func didTapDeleteButton(in cell: FeedTableViewCell)
+    func didTapModifyButton(in cell: FeedTableViewCell)
+
+}
+
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewUseProfile: UIImageView!
@@ -29,6 +36,9 @@ class FeedTableViewCell: UITableViewCell {
         
             print("popup")
     }
+    
+    weak var delegate: FeedTableViewCellDelegate?
+
     
     var likeCount: Int = 999 {
         didSet {
@@ -58,26 +68,26 @@ class FeedTableViewCell: UITableViewCell {
     
     // 풀다운 버튼 함수
     func setUpPullDownButton() {
-        let optionClosure = {  (action: UIAction) in
-            if action.title == "삭제" {
-                DataManager.shared.posts.remove(at: 0).image
-                DataManager.shared.posts.remove(at: 0).description
-       
+            
+            let optionClosure = {  [weak self] (action: UIAction) in
+                if action.title == "수정" {
+                    self?.delegate?.didTapModifyButton(in: self!) }
+                else if action.title == "삭제" {
+                    self?.delegate?.didTapDeleteButton(in: self!)
+                }
+                print(action.title)
             }
-            print(action.title)
-        }
         
-//        let optionClosure = {(action: UIAction) in print(action.title)}
-        
+
         self.pullDownButton.menu = UIMenu(children : [
-            UIAction(title: "수정", state: .on, handler: optionClosure),
+            UIAction(title: "수정", state: .off, handler: optionClosure),
             UIAction(title: "삭제", handler: optionClosure)
         ])
-        
+
         self.pullDownButton.showsMenuAsPrimaryAction = true
-        self.pullDownButton.changesSelectionAsPrimaryAction = true
+        self.pullDownButton.changesSelectionAsPrimaryAction = false
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         

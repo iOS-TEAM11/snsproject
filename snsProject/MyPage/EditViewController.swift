@@ -31,6 +31,7 @@ class EditViewController: UIViewController {
         setupLayout()
         imageView.image = uploadImage
     }
+    
 }
 
 private extension EditViewController {
