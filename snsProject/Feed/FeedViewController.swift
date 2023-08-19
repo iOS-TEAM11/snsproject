@@ -1,9 +1,4 @@
-//
-//  ViewController.swift
-//  snsProject
-//
-//  Created by t2023-m0062 on 2023/08/14.
-//
+
 
 import UIKit
 
@@ -11,13 +6,18 @@ class FeedViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var userId = "iOS_TEAM11 "
+
     
+    let feedTableViewCell = FeedTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        // FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
+        tableView.separatorStyle = .none
+        
+        
+        //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
     }
@@ -25,10 +25,12 @@ class FeedViewController: UIViewController {
     // 뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tableView.reloadData()
-    }
 
+    
+        self.tableView.reloadData()
+    }
+    
+    
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {

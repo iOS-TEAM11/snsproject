@@ -1,6 +1,7 @@
 import UIKit
 
 class DescriptionViewController: UIViewController {
+
     let uploadImage: UIImage
     private let imageView = UIImageView()
     private lazy var textField: UITextField = {
@@ -44,6 +45,7 @@ private extension DescriptionViewController {
     @objc func didTapRightButton() {
         let post = Post(image: uploadImage, description: textField.text ?? "")
         print("post: \(post)")
+
         DataManager.shared.posts.insert(post, at: 0)
         print("post == \(DataManager.shared.posts)")
         dismiss(animated: true)

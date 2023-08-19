@@ -1,7 +1,8 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    var userData: [UserDatum] = []
+
+    var userData: [UserData] = []
 
     private let imagePickerController = ImagePickerController()
 

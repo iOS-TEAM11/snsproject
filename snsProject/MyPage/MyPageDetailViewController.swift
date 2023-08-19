@@ -9,6 +9,7 @@ class MyPageDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad 데이터 확인: \(DataManager.shared.posts.count)")
+
         
         tableView.delegate = self
         tableView.dataSource = self

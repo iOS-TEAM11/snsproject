@@ -1,6 +1,9 @@
 
 import UIKit
 
+
+
+
 // 게시물 저장 데이터
 class DataManager {
     // 싱글톤 패턴
@@ -19,7 +22,7 @@ struct Post {
 }
 
 // 유저 데이터
-struct UserDatum {
+struct UserData {
     let userImage: UIImage
     let userName: String
     let userNickName: String

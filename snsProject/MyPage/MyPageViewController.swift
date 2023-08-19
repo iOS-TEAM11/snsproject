@@ -27,6 +27,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         myPageCollectionView.addGestureRecognizer(longPressGesture)
        
         myPageCollectionView.reloadData()
+
+
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
@@ -62,6 +64,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
             // 삭제하기 구현
             DataManager.shared.posts.remove(at: indexPath.row)
             print("삭제:\(DataManager.shared.posts)")
+
             self?.myPageCollectionView.reloadData()
         }
            
@@ -139,7 +142,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             cell.parentViewController = self
             cell.postingCountLabel.text = String(DataManager.shared.posts.count)
-            
+<
             return cell
             
         default:

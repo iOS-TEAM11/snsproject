@@ -49,7 +49,7 @@ class MyPageCollectionViewCell: UICollectionViewCell {
         addFriendButton.layer.borderWidth = 1
         
         postingCountLabel.text = String(DataManager.shared.posts.count)
-        
+
         [followerCountLabel, followingCountLabel].forEach { $0?.text = "\(Int.random(in: 100...300))"}
     }
 }
