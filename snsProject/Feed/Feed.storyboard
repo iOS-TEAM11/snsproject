@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="bottom" secondItem="3PS-88-sos" secondAttribute="bottom" constant="10" id="wk3-Rh-pgp"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dmk-uP-pjv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dmk-uP-pjv">
                                 <rect key="frame" x="0.0" y="99" width="393" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>

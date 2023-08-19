@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--createpage-->
+        <!--Create Page View Controller-->
         <scene sceneID="rss-us-JeJ">
             <objects>
                 <viewController storyboardIdentifier="CreatePage" id="4V9-9P-FaA" customClass="CreatePageViewController" customModule="snsProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="createpage" id="blW-in-VnT"/>
+                    <tabBarItem key="tabBarItem" title="" image="Plus" selectedImage="Plus" id="blW-in-VnT">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-20"/>
+                        <inset key="largeContentSizeImageInsets" minX="40" minY="1" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="cWx-XU-RF6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -30,6 +33,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Plus" width="24.333333969116211" height="24.333333969116211"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

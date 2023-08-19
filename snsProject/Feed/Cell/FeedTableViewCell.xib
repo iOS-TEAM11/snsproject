@@ -50,8 +50,8 @@
                             <action selector="actionBookMark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ekt-f2-hN4"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋아요 4개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-a5-Dcb">
-                        <rect key="frame" x="10" y="577" width="74.333333333333329" height="20.333333333333371"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋아요 999개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-a5-Dcb">
+                        <rect key="frame" x="10" y="577" width="96.666666666666671" height="20.333333333333371"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
