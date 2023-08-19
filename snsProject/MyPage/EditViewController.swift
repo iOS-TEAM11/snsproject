@@ -7,11 +7,9 @@ class EditViewController: UIViewController {
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 15.0)
-        if let indexPath = indexPath, indexPath < DataManager.shared.myFeedText.count {
-            textField.text = DataManager.shared.myFeedText[indexPath]
+        if let indexPath = indexPath, indexPath < DataManager.shared.posts.count {
+            textField.text = DataManager.shared.posts[indexPath].description
         }
-        // textField.text = DataManager.shared.myFeedText[indexPath!]
-        // textField.placeholder = "게시글을 입력해주세요"
 
         return textField
     }()
@@ -33,6 +31,7 @@ class EditViewController: UIViewController {
         setupLayout()
         imageView.image = uploadImage
     }
+    
 }
 
 private extension EditViewController {
@@ -47,12 +46,12 @@ private extension EditViewController {
     }
 
     @objc func didTapRightButton() {
-        guard let tabController = presentingViewController as? TabBarController else {
+        guard let indexPath = indexPath, indexPath < DataManager.shared.posts.count else{
+            dismiss(animated: true)
             return
         }
+        DataManager.shared.posts[indexPath].description = textField.text ?? ""
 
-//        let post = Post(image: uploadImage, description: textField.text ?? "")
-//        tabController.posts.insert(post, at: 0)
         dismiss(animated: true)
     }
 
@@ -83,7 +82,6 @@ private extension EditViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: imageViewInset),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: imageViewInset),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: imageViewInset),
-
         ])
     }
 }

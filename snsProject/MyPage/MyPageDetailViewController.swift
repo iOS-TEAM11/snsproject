@@ -3,11 +3,13 @@ import UIKit
 class MyPageDetailViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    var selectedImage: UIImage?
+    var userId = "iOS_TEAM11 "
     var selectedIndexPath: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad 데이터 확인: \(DataManager.shared.posts.count)")
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -17,39 +19,31 @@ class MyPageDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let tabBarController = tabBarController as? TabBarController {
-//            DataManager.shared.myFeedImg = tabBarController.posts.map { $0.image }
-//            DataManager.shared.myFeedText = tabBarController.posts.map { $0.description }
-    
-            let indexPath = IndexPath(row: selectedIndexPath!, section: 0)
-            tableView.scrollToRow(at: indexPath, at: .none, animated: true)
-            
-            tableView.reloadData()
-        }
-    }
 
+        let indexPath = IndexPath(row: selectedIndexPath!, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+            
+        tableView.reloadData()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
-        print("viewwillDisappear")
         // 다른 tabBar icon을 누를 시, 강제로 view 빼주기
         navigationController?.popViewController(animated: true)
     }
 }
-
-extension MyPageDetailViewController: UITableViewDelegate, UITableViewDataSource {
-    // numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.shared.myFeedImg.count
-    }
     
-    // cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
+extension MyPageDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DataManager.shared.posts.count
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.imageViewFeed.image = DataManager.shared.myFeedImg[indexPath.row]
-        cell.labelFeed.text = DataManager.shared.myFeedText[indexPath.row]
+        cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
+        cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
         return cell
     }
     

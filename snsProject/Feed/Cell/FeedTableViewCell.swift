@@ -8,7 +8,9 @@
 import UIKit
 
 protocol FeedTableViewCellDelegate: AnyObject {
-    func showCommentModalViewController()
+    func didTapDeleteButton(in cell: FeedTableViewCell)
+    func didTapModifyButton(in cell: FeedTableViewCell)
+
 }
 
 class FeedTableViewCell: UITableViewCell {
@@ -34,6 +36,9 @@ class FeedTableViewCell: UITableViewCell {
         
             print("popup")
     }
+    
+    weak var delegate: FeedTableViewCellDelegate?
+
     
     var likeCount: Int = 999 {
         didSet {
@@ -67,26 +72,26 @@ class FeedTableViewCell: UITableViewCell {
     
     // 풀다운 버튼 함수
     func setUpPullDownButton() {
-        let optionClosure = {  (action: UIAction) in
-            if action.title == "삭제" {
-                DataManager.shared.myFeedImg.remove(at: 0)
-                DataManager.shared.myFeedText.remove(at: 0)
-       
+            
+            let optionClosure = {  [weak self] (action: UIAction) in
+                if action.title == "수정" {
+                    self?.delegate?.didTapModifyButton(in: self!) }
+                else if action.title == "삭제" {
+                    self?.delegate?.didTapDeleteButton(in: self!)
+                }
+                print(action.title)
             }
-            print(action.title)
-        }
         
-//        let optionClosure = {(action: UIAction) in print(action.title)}
-        
+
         self.pullDownButton.menu = UIMenu(children : [
-            UIAction(title: "수정", state: .on, handler: optionClosure),
+            UIAction(title: "수정", state: .off, handler: optionClosure),
             UIAction(title: "삭제", handler: optionClosure)
         ])
-        
+
         self.pullDownButton.showsMenuAsPrimaryAction = true
-        self.pullDownButton.changesSelectionAsPrimaryAction = true
+        self.pullDownButton.changesSelectionAsPrimaryAction = false
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -98,14 +103,14 @@ class FeedTableViewCell: UITableViewCell {
         
         setUpPullDownButton()
 
-        //좋아요 밑에 아이디 bold설정
-//        let fontSize = UIFont.boldSystemFont(ofSize: 15)
-//        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
-//
-//        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
-//        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
-//
-//        labelFeed.attributedText = attributedStr
+       //좋아요 밑에 아이디 bold설정
+        let fontSize = UIFont.boldSystemFont(ofSize: 15)
+        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
+
+        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
+        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
+
+        labelFeed.attributedText = attributedStr
         
         labelUserName.font = UIFont.boldSystemFont(ofSize: 15)
     }
