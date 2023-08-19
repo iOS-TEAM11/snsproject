@@ -27,8 +27,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         myPageCollectionView.addGestureRecognizer(longPressGesture)
        
         myPageCollectionView.reloadData()
-
-
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
@@ -54,7 +52,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func showActionButtons(at indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-           
+        
         let editAction = UIAlertAction(title: "수정하기", style: .default) { [weak self] _ in
             // 수정하기 구현
             self?.showEditViewController(at: indexPath)
@@ -142,7 +140,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             cell.parentViewController = self
             cell.postingCountLabel.text = String(DataManager.shared.posts.count)
-<
+
             return cell
             
         default:

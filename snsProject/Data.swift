@@ -8,6 +8,7 @@ import UIKit
 class DataManager {
     // 싱글톤 패턴
     static let shared = DataManager()
+    
     var posts: [Post] = [
         Post(image: #imageLiteral(resourceName: "dummy1"), description: "iOS개발자가 되고 싶어요"),
         Post(image: #imageLiteral(resourceName: "dummy2"), description: "제발요")
@@ -18,7 +19,7 @@ class DataManager {
 
 struct Post {
     let image: UIImage
-    let description: String
+    var description: String
 }
 
 // 유저 데이터
