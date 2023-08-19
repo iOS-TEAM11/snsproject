@@ -38,9 +38,26 @@ class UserDataManager {
 
     var userArray: [UserDatum] = []
 
-    private init() {}
+    private var userLink: String?
+
+    private init() {
+        userLink = UserDefaults.standard.string(forKey: "userLink")
+    }
 
     func addUser(user: UserDatum) {
         userArray.append(user)
+    }
+
+    func setUserLink(_ link: String) {
+        userLink = link
+        UserDefaults.standard.set(link, forKey: "userLink")
+    }
+
+    func getUserLink() -> String? {
+        return userLink
+    }
+    
+    func resetLink() {
+        UserDefaults.standard.removeObject(forKey: "userLink")
     }
 }

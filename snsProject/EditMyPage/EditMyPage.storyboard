@@ -105,26 +105,23 @@
                                                 <rect key="frame" x="0.0" y="126" width="356" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="링크" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-9m-iII">
-                                                        <rect key="frame" x="0.0" y="0.0" width="78" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="66" height="34"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="78" id="tW2-rj-4l6"/>
+                                                            <constraint firstAttribute="width" constant="66" id="tW2-rj-4l6"/>
                                                             <constraint firstAttribute="height" constant="34" id="yYi-2x-jKz"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="링크 추가" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="afJ-BJ-yBX">
-                                                        <rect key="frame" x="86" y="0.0" width="270" height="34"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="270" id="eV4-Nr-Fz9"/>
-                                                            <constraint firstAttribute="height" constant="34" id="jwe-LX-O5L"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXM-bY-C7O">
+                                                        <rect key="frame" x="74" y="0.0" width="282" height="34"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="linkButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1AQ-kG-XC3"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UuV-i2-uaq">
@@ -184,9 +181,9 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="genderButton" destination="kS5-vM-CZQ" id="lM5-VZ-4IW"/>
+                        <outlet property="linkButton" destination="PXM-bY-C7O" id="llZ-bF-6Vt"/>
                         <outlet property="profileImage" destination="J63-US-nWE" id="hXL-27-tRl"/>
                         <outlet property="tfIntro" destination="Wc0-Z1-zTJ" id="Rjx-NE-7XH"/>
-                        <outlet property="tfLink" destination="afJ-BJ-yBX" id="K6b-IU-yqs"/>
                         <outlet property="tfName" destination="Jwv-gs-o4f" id="6nj-kA-Qyn"/>
                         <outlet property="tfNickName" destination="V0Z-sx-ccE" id="b2Z-1G-TSj"/>
                     </connections>
