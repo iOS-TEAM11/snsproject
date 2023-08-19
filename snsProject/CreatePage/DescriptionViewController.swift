@@ -56,8 +56,9 @@ private extension DescriptionViewController {
             return
         }
         
-        let post = Post(image: uploadImage, description: textField.text ?? "")
-        tabController.posts.insert(post, at: 0)
+//        let post = Post(image: uploadImage, description: textField.text ?? "")
+        DataManager.shared.myFeedImg.insert(uploadImage, at: 0)
+        DataManager.shared.myFeedText.insert(textField.text ?? "", at: 0)
         dismiss(animated: true)
         
     }

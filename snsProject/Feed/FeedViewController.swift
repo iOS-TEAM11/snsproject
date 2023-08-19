@@ -12,21 +12,20 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // 피드화면 데이터
-    var feedImage: [UIImage] = []
-    var feedText: [String] = []
-    let dummyImage1 = #imageLiteral(resourceName: "dummy1")
-    let dummyImage2 = #imageLiteral(resourceName: "dummy2")
+//    var feedImage: [UIImage] = []
+//    var feedText: [String] = []
+
     var userId = "11조  "
     
     
-    func loadDummyData() {
-        feedImage.append(contentsOf: [dummyImage1, dummyImage2])
-        feedText.append(contentsOf: ["iOS개발자가 되고 싶어요", "제발요"])
-    }
+//    func loadDummyData() {
+//        feedImage.append(contentsOf: [dummyImage1, dummyImage2])
+//        feedText.append(contentsOf: ["iOS개발자가 되고 싶어요", "제발요"])
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDummyData()
+        DummyData.shared.loadDummyData()
 
 
         tableView.delegate = self
@@ -41,18 +40,16 @@ class FeedViewController: UIViewController {
         super.viewWillAppear(animated)
         
 
-        if let tabController = tabBarController as? TabBarController {
-            feedImage.append(contentsOf: tabController.posts.map { $0.image })
-            feedText.append(contentsOf: tabController.posts.map { $0.description })
-        }
-        tableView.reloadData()
+
+        
+        self.tableView.reloadData()
     }
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     //numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedImage.count
+        return DataManager.shared.myFeedImg.count
     }
     
     //cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
@@ -61,8 +58,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.imageViewFeed.image = feedImage[indexPath.row]
-        cell.labelFeed.text = userId + feedText[indexPath.row]
+        cell.imageViewFeed.image = DataManager.shared.myFeedImg[indexPath.row]
+        cell.labelFeed.text = DataManager.shared.myFeedText[indexPath.row]
 
         return cell
     }

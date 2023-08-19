@@ -3,7 +3,7 @@ import UIKit
 class TabBarController: UITabBarController {
 
     //var posts: [Post] = []
-    var posts = DataManager.shared.posts
+//    var posts = DataManager.shared.posts
     var userData: [UserDatum] = []
     
     

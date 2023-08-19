@@ -19,8 +19,8 @@ class MyPageDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if let tabBarController = tabBarController as? TabBarController {
-            DataManager.shared.myFeedImg = tabBarController.posts.map { $0.image }
-            DataManager.shared.myFeedText = tabBarController.posts.map { $0.description }
+//            DataManager.shared.myFeedImg = tabBarController.posts.map { $0.image }
+//            DataManager.shared.myFeedText = tabBarController.posts.map { $0.description }
     
             let indexPath = IndexPath(row: selectedIndexPath!, section: 0)
             tableView.scrollToRow(at: indexPath, at: .none, animated: true)
