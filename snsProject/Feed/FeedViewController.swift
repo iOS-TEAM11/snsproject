@@ -13,7 +13,6 @@ class FeedViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
-        
         //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
@@ -25,9 +24,6 @@ class FeedViewController: UIViewController {
     
         self.tableView.reloadData()
     }
-    
-    
-
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -41,15 +37,21 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.delegate = self
         cell.imageViewFeed.image = DataManager.shared.myFeedImg[indexPath.row]
         cell.labelFeed.text = cell.labelUserName.text!+" "+DataManager.shared.myFeedText[indexPath.row]
-
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 600
+        return 600
     }
-  }
+}
+
+extension FeedViewController: FeedTableViewCellDelegate {
+    func showCommentModalViewController() {
+        performSegue(withIdentifier: "CommentViewController", sender: nil)
+    }
+}
 

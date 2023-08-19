@@ -7,8 +7,13 @@
 
 import UIKit
 
-class FeedTableViewCell: UITableViewCell {
+protocol FeedTableViewCellDelegate: AnyObject {
+    func showCommentModalViewController()
+}
 
+class FeedTableViewCell: UITableViewCell {
+    weak var delegate: FeedTableViewCellDelegate?
+    
     @IBOutlet weak var imageViewUseProfile: UIImageView!
     
     @IBOutlet weak var labelUserName: UILabel!
@@ -45,6 +50,10 @@ class FeedTableViewCell: UITableViewCell {
         } else {
             likeCount -= 1
         }
+    }
+    
+    @IBAction func didClickCommentButton(_ sender: UIButton) {
+        delegate?.showCommentModalViewController()
     }
     
     @IBAction func actionBookMark(_ sender: Any) {
@@ -129,3 +138,4 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
 }
+
