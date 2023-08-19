@@ -29,8 +29,12 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         myPageCollectionView.reloadData()
     }
     
+    
+    
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .began {
+            
+            
             // 꾹 눌린 동작이 시작되었을 때
             let touchPoint = gestureRecognizer.location(in: myPageCollectionView)
             if let indexPath = myPageCollectionView.indexPathForItem(at: touchPoint) {
@@ -41,6 +45,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // 수정하기 클릭시 작동되는 함수
     func showEditViewController(at indexPath: IndexPath) {
+        
         let editViewController = EditViewController(uploadImage: DataManager.shared.posts[indexPath.row].image)
         editViewController.indexPath = indexPath.row
         

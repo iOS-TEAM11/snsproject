@@ -9,9 +9,9 @@ class FeedViewController: UIViewController {
 
     
     let feedTableViewCell = FeedTableViewCell()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -47,11 +47,21 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
         cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
-
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 600
+    }
+}
+
+
+extension FeedViewController: FeedTableViewCellDelegate {
+    func didTapDeleteButton(in cell: FeedTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        DataManager.shared.posts.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
