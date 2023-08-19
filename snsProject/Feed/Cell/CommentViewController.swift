@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommentViewController: UIViewController {
+class CommentViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var commentLabel: UILabel!
     
@@ -21,12 +21,37 @@ class CommentViewController: UIViewController {
     
     @IBOutlet weak var separateLine: UIView!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var registerBtn: UIButton!
+    
+    
+    @IBAction func registerBtnTapped(_ sender: UIButton) {
+        if !commentField.text.isEmpty {
+            comment.append(commentField.text)
+            commentField.text = ""  //댓글 입력 필드 초기화
+            tableView.reloadData() //댓글 추가되면 테이블뷰 리로드
+            //입력된 댓글의 셀로 스크롤
+            let indexPath = IndexPath(row: comment.count - 1, section: 0)
+            tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            //키보드 자동으로 내리기
+            commentField.resignFirstResponder()
+        }
+    }
     
     var keyboardHeight: CGFloat = 0
     var placeholderLabel: UILabel!
+    //배열에 댓글 저장
+    var comment: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let CommentNib = UINib(nibName: "CommentTableViewCell", bundle: nil)
+        tableView.register(CommentNib, forCellReuseIdentifier: "CommentTableViewCell")
+        
         
         headerView.layer.cornerRadius = 5
         headerView.clipsToBounds = true
@@ -36,6 +61,7 @@ class CommentViewController: UIViewController {
         commentField.layer.cornerRadius = 20
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         //placeholder
         placeholderLabel = UILabel()
@@ -62,10 +88,32 @@ class CommentViewController: UIViewController {
                }
            }
     }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame.origin.y = 0
+        }
+    }
 }
 
-extension CommentViewController: UITextViewDelegate {
+extension CommentViewController: UITextViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comment.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as? CommentTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let comment = comment[indexPath.row]
+        cell.commentFieldLabel.text = comment // 셀에 댓글 표시
+        
+        return cell
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
 }
+

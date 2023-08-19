@@ -11,6 +11,8 @@
 		0843146D2A8CACFF00C7A56E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843146C2A8CACFF00C7A56E /* Data.swift */; };
 		ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */; };
 		ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */; };
+		C33C65762A911E0B00D2845C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C65742A911E0B00D2845C /* CommentTableViewCell.swift */; };
+		C33C65772A911E0B00D2845C /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C33C65752A911E0B00D2845C /* CommentTableViewCell.xib */; };
 		C3BEC8122A90AF0500B1950E /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEC8112A90AF0500B1950E /* CommentViewController.swift */; };
 		C3BEC8142A90B89600B1950E /* CommentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BEC8132A90B89600B1950E /* CommentViewController.storyboard */; };
 		C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */; };
@@ -45,6 +47,8 @@
 		0843146C2A8CACFF00C7A56E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMyPage.storyboard; sourceTree = "<group>"; };
 		ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
+		C33C65742A911E0B00D2845C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		C33C65752A911E0B00D2845C /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		C3BEC8112A90AF0500B1950E /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		C3BEC8132A90B89600B1950E /* CommentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentViewController.storyboard; sourceTree = "<group>"; };
 		C3CBD81C2A8A08A40020A3DE /* Reels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reels.storyboard; sourceTree = "<group>"; };
@@ -118,9 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				C3CBD8482A8B7C9E0020A3DE /* FeedTableViewCell.swift */,
+				C3CBD8492A8B7C9E0020A3DE /* FeedTableViewCell.xib */,
+				C33C65742A911E0B00D2845C /* CommentTableViewCell.swift */,
+				C33C65752A911E0B00D2845C /* CommentTableViewCell.xib */,
 				C3BEC8112A90AF0500B1950E /* CommentViewController.swift */,
 				C3BEC8132A90B89600B1950E /* CommentViewController.storyboard */,
-				C3CBD8492A8B7C9E0020A3DE /* FeedTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 				C3CCB3172A89C6A30026EEA8 /* LaunchScreen.storyboard in Resources */,
 				C3CBD81D2A8A08A40020A3DE /* Reels.storyboard in Resources */,
 				C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */,
+				C33C65772A911E0B00D2845C /* CommentTableViewCell.xib in Resources */,
 				C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */,
 				ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */,
 				FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */,
@@ -311,6 +318,7 @@
 				FB718FE62A8BA75500B851D3 /* PostCollectionViewCell.swift in Sources */,
 				C3CBD8262A8A0E830020A3DE /* TabBarController.swift in Sources */,
 				C3CCB30A2A89C6A20026EEA8 /* SceneDelegate.swift in Sources */,
+				C33C65762A911E0B00D2845C /* CommentTableViewCell.swift in Sources */,
 				C3CBD84A2A8B7C9E0020A3DE /* FeedTableViewCell.swift in Sources */,
 				FB2A7DA72A8E02D4003001C3 /* MyPageDetailViewController.swift in Sources */,
 			);
