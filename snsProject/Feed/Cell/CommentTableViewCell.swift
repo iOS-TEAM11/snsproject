@@ -17,6 +17,15 @@ class CommentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentBtnHeart: UIButton!
     
+    
+    @IBAction func actionCommentHeart(_ sender: UIButton) {
+        if commentBtnHeart.isSelected {
+            commentBtnHeart.isSelected = false
+        } else {
+            commentBtnHeart.isSelected = true
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

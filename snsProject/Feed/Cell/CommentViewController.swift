@@ -26,6 +26,7 @@ class CommentViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var registerBtn: UIButton!
     
     
+    
     @IBAction func registerBtnTapped(_ sender: UIButton) {
         if !commentField.text.isEmpty {
             comment.append(commentField.text)
@@ -75,7 +76,11 @@ class CommentViewController: UIViewController, UITableViewDelegate {
         placeholderLabel.topAnchor.constraint(equalTo: commentField.topAnchor, constant: 8).isActive = true
         
         commentField.delegate = self
+        //구분선 없애기
+        tableView.separatorStyle = .none
     }
+    
+    
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let userInfo = notification.userInfo,
@@ -114,6 +119,14 @@ extension CommentViewController: UITextViewDelegate, UITableViewDataSource {
     
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
+    }
+    
+    //댓글 삭제
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            comment.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 
