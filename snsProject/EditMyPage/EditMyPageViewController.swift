@@ -33,6 +33,7 @@ class EditMyPageViewController: UIViewController{
         //성별 선택 버튼 초기화
         pushgenderButton()
         
+        //링크 버튼 초기화
         updateLinkButtonTitle()
         
         //이미지 버튼 둥글게 작업
@@ -45,7 +46,10 @@ class EditMyPageViewController: UIViewController{
         //네비게이션 바 백 버튼 커스텀
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelEditing))
         
-    
+        //링크 버튼 커스텀
+        linkButton.setTitle("링크 추가", for: .normal)
+        linkButton.setTitleColor(UIColor.black.withAlphaComponent(0.3), for: .normal)
+        linkButton.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
     }
     
     func pushgenderButton(){
@@ -101,13 +105,17 @@ class EditMyPageViewController: UIViewController{
             userLink = lastUser.userLink
             updateLinkButtonTitle() // 링크 버튼 타이틀 업데이트
             
+            // 저장된 URL을 설정 (링크가 비어있지 않을 경우에만 업데이트)
+            if !userLink.isEmpty, let url = URL(string: userLink) {
+                linkURL = url
+            }
+            
+            
             selectedGender = lastUser.userGender
             genderButton.setTitle(selectedGender.isEmpty ? "선택하세요" : selectedGender, for: .normal)
             let isGenderSelected = selectedGender == "남성" || selectedGender == "여성"
             genderButton.setTitleColor(isGenderSelected ? .black : UIColor.black.withAlphaComponent(0.3), for: .normal)
         }
-        
- 
     }
     
     
@@ -186,37 +194,41 @@ class EditMyPageViewController: UIViewController{
                     
                     // 저장된 URL을 설정
                     self?.linkURL = URL(string: link)
-
+                    
                     // 입력받은 링크로 버튼 타이틀 설정
                     self?.linkButton.setTitle(link, for: .normal)
-        
+                }
             }
-        }
             let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             alert.addAction(addAction)
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
         } else {
-                    // 버튼을 누를 때 저장된 URL로 웹 페이지 열기
-                    if let url = linkURL, UIApplication.shared.canOpenURL(url) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    }
-                }
+            // 버튼을 누를 때 저장된 URL로 웹 페이지 열기
+            if let url = linkURL, UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
+        }
+    }
     
     // 링크 버튼 타이틀 업데이트
     func updateLinkButtonTitle() {
         linkButton.setTitle(userLink, for: .normal)
+        // 링크 항목에 값이 들어있을때 색상지정
+        let isLinkAdded = userLink != "링크 추가"
+        linkButton.setTitle(userLink, for: .normal)
+        linkButton.setTitleColor(isLinkAdded ? UIColor.black : UIColor.black.withAlphaComponent(0.7), for: .normal)
     }
-        //경고창
-        func showAlert(message: String) {
-            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        }
-        
+    
+    //경고창
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
+}
+    
     
     
 
