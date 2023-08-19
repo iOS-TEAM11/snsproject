@@ -8,8 +8,6 @@ class FeedViewController: UIViewController {
     var userId = "iOS_TEAM11 "
 
     
-    let feedTableViewCell = FeedTableViewCell()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -64,4 +62,14 @@ extension FeedViewController: FeedTableViewCellDelegate {
         DataManager.shared.posts.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
+    
+    func didTapModifyButton(in cell: FeedTableViewCell) {
+            guard let indexPath = tableView.indexPath(for: cell) else { return }
+
+            let post = DataManager.shared.posts[indexPath.row]
+            let editVC = EditViewController(uploadImage: post.image)
+            editVC.indexPath = indexPath.row
+            let navController = UINavigationController(rootViewController: editVC)
+            present(navController, animated: true)
+        }
 }
