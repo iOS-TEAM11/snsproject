@@ -31,6 +31,7 @@
 		C3CCB3302A8A02980026EEA8 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */; };
 		C3CCB3322A8A02A10026EEA8 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */; };
 		FB2A7DA72A8E02D4003001C3 /* MyPageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2A7DA62A8E02D4003001C3 /* MyPageDetailViewController.swift */; };
+		FB6DF9B22A8F529B00EED4B5 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6DF9B12A8F529B00EED4B5 /* EditViewController.swift */; };
 		FB718FE12A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */; };
 		FB718FE22A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */; };
 		FB718FE52A8BA75500B851D3 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */; };
@@ -64,6 +65,7 @@
 		C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		C3CCB3312A8A02A10026EEA8 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		FB2A7DA62A8E02D4003001C3 /* MyPageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDetailViewController.swift; sourceTree = "<group>"; };
+		FB6DF9B12A8F529B00EED4B5 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		FB718FDF2A8BA5EC00B851D3 /* MyPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB718FE02A8BA5EC00B851D3 /* MyPageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB718FE32A8BA75500B851D3 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				C3CCB32B2A89FE640026EEA8 /* MyPageViewController.swift */,
 				C3CCB32F2A8A02980026EEA8 /* MyPage.storyboard */,
 				FB2A7DA62A8E02D4003001C3 /* MyPageDetailViewController.swift */,
+				FB6DF9B12A8F529B00EED4B5 /* EditViewController.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				C3CCB30C2A89C6A20026EEA8 /* FeedViewController.swift in Sources */,
 				C3CCB3082A89C6A20026EEA8 /* AppDelegate.swift in Sources */,
 				ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */,
+				FB6DF9B22A8F529B00EED4B5 /* EditViewController.swift in Sources */,
 				C3CBD81F2A8A08AF0020A3DE /* ReelsViewController.swift in Sources */,
 				C3CCB3122A89C6A20026EEA8 /* snsProject.xcdatamodeld in Sources */,
 				0843146D2A8CACFF00C7A56E /* Data.swift in Sources */,

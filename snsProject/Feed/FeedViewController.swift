@@ -11,13 +11,24 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // 피드화면 데이터
     var feedImage: [UIImage] = []
     var feedText: [String] = []
-
+    let dummyImage1 = #imageLiteral(resourceName: "dummy1")
+    let dummyImage2 = #imageLiteral(resourceName: "dummy2")
+    var userId = "11조  "
+    
+    
+    func loadDummyData() {
+        feedImage.append(contentsOf: [dummyImage1, dummyImage2])
+        feedText.append(contentsOf: ["iOS개발자가 되고 싶어요", "제발요"])
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadDummyData()
+
+
         tableView.delegate = self
         tableView.dataSource = self
         //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
@@ -29,15 +40,13 @@ class FeedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let tabController = tabBarController as? TabBarController {
-            feedImage = tabController.posts.map { $0.image }
-            feedText = tabController.posts.map { $0.description }
 
-            tableView.reloadData()
+        if let tabController = tabBarController as? TabBarController {
+            feedImage.append(contentsOf: tabController.posts.map { $0.image })
+            feedText.append(contentsOf: tabController.posts.map { $0.description })
         }
+        tableView.reloadData()
     }
-    
-    
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -51,8 +60,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
+        
         cell.imageViewFeed.image = feedImage[indexPath.row]
-        cell.labelFeed.text = feedText[indexPath.row]
+        cell.labelFeed.text = userId + feedText[indexPath.row]
 
         return cell
     }

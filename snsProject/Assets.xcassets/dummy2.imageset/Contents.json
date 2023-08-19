@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Autto_abstract_art_8k_Hd_photography_realistic_aa6ee96d-324a-4b77-ad1c-7f494d8420ba@1x.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Autto_abstract_art_8k_Hd_photography_realistic_aa6ee96d-324a-4b77-ad1c-7f494d8420ba@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Autto_abstract_art_8k_Hd_photography_realistic_aa6ee96d-324a-4b77-ad1c-7f494d8420ba@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
