@@ -8,6 +8,7 @@
 import UIKit
 
 protocol FeedTableViewCellDelegate: AnyObject {
+    func showCommentModalViewController()
     func didTapDeleteButton(in cell: FeedTableViewCell)
     func didTapModifyButton(in cell: FeedTableViewCell)
 
@@ -36,9 +37,6 @@ class FeedTableViewCell: UITableViewCell {
         
             print("popup")
     }
-    
-    weak var delegate: FeedTableViewCellDelegate?
-
     
     var likeCount: Int = 999 {
         didSet {

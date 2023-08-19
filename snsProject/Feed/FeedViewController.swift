@@ -52,6 +52,10 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension FeedViewController: FeedTableViewCellDelegate {
+    func showCommentModalViewController() {
+        performSegue(withIdentifier: "CommentViewController", sender: self)
+    }
+    
     func didTapDeleteButton(in cell: FeedTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         
