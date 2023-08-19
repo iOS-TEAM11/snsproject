@@ -80,12 +80,12 @@ class FeedTableViewCell: UITableViewCell {
         
 
         self.pullDownButton.menu = UIMenu(children : [
-            UIAction(title: "수정", state: .on, handler: optionClosure),
+            UIAction(title: "수정", state: .off, handler: optionClosure),
             UIAction(title: "삭제", handler: optionClosure)
         ])
 
         self.pullDownButton.showsMenuAsPrimaryAction = true
-        self.pullDownButton.changesSelectionAsPrimaryAction = true
+        self.pullDownButton.changesSelectionAsPrimaryAction = false
     }
 
     override func awakeFromNib() {
