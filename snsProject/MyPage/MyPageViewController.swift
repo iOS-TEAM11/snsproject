@@ -4,7 +4,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
-    // var myFeedImg: [UIImage] = []
     var longPressGesture: UILongPressGestureRecognizer! // 길게 누르기 동작
 
     let collectionView = MyPageCollectionViewCell()
@@ -23,7 +22,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         myPageCollectionView.addGestureRecognizer(longPressGesture)
         if let tabController = tabBarController as? TabBarController {
-            DataManager.shared.myFeedImg = tabController.posts.map { $0.image }
+//            DataManager.shared.myFeedImg = tabController.posts.map { $0.image }
             myPageCollectionView.reloadData()
         }
     }

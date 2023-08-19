@@ -35,8 +35,10 @@ class FeedTableViewCell: UITableViewCell {
             labelHowManyLike.text = "좋아요 \(likeCount)개"
         }
     }
-
-    @IBAction func actionIsHeart(_ sender: Any) {
+    
+    @IBOutlet weak var pullDownButton: UIButton!
+    
+        @IBAction func actionIsHeart(_ sender: Any) {
         buttonIsHeart.isSelected.toggle()
         if buttonIsHeart.isSelected {
             likeCount += 1
@@ -53,6 +55,29 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
+    
+    // 풀다운 버튼 함수
+    func setUpPullDownButton() {
+        let optionClosure = {  (action: UIAction) in
+            if action.title == "삭제" {
+                DataManager.shared.myFeedImg.remove(at: 0)
+                DataManager.shared.myFeedText.remove(at: 0)
+       
+            }
+            print(action.title)
+        }
+        
+//        let optionClosure = {(action: UIAction) in print(action.title)}
+        
+        self.pullDownButton.menu = UIMenu(children : [
+            UIAction(title: "수정", state: .on, handler: optionClosure),
+            UIAction(title: "삭제", handler: optionClosure)
+        ])
+        
+        self.pullDownButton.showsMenuAsPrimaryAction = true
+        self.pullDownButton.changesSelectionAsPrimaryAction = true
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -62,13 +87,18 @@ class FeedTableViewCell: UITableViewCell {
         imageViewFeed.addGestureRecognizer(doubleTapGesture)
         imageViewFeed.isUserInteractionEnabled = true
         
+        setUpPullDownButton()
+
         //좋아요 밑에 아이디 bold설정
-        let fontSize = UIFont.boldSystemFont(ofSize: 15)
-        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
-        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
-        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
+//        let fontSize = UIFont.boldSystemFont(ofSize: 15)
+//        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
+//
+//        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
+//        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
+//
+//        labelFeed.attributedText = attributedStr
         
-        labelFeed.attributedText = attributedStr
+        labelUserName.font = UIFont.boldSystemFont(ofSize: 15)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -51,8 +51,8 @@ private extension EditViewController {
             return
         }
 
-        let post = Post(image: uploadImage, description: textField.text ?? "")
-        tabController.posts.insert(post, at: 0)
+//        let post = Post(image: uploadImage, description: textField.text ?? "")
+//        tabController.posts.insert(post, at: 0)
         dismiss(animated: true)
     }
 
