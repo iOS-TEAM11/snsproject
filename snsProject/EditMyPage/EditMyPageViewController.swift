@@ -8,33 +8,30 @@
 import UIKit
 
 class EditMyPageViewController: UIViewController {
-    
     var userName: [String] = []
     var userNickName: [String] = []
     var userGender: [String] = []
     var userIntro: [String] = []
     var userLink: [String] = []
     
-    
-    @IBOutlet weak var profileImage: UIButton!
+    @IBOutlet var profileImage: UIButton!
 
-    @IBOutlet weak var tfName: UITextField!
-    @IBOutlet weak var tfNickName: UITextField!
-    @IBOutlet weak var tfIntro: UITextField!
-    @IBOutlet weak var tfLink: UITextField!
-    @IBOutlet weak var tfGender: UITextField!
-    
+    @IBOutlet var tfName: UITextField!
+    @IBOutlet var tfNickName: UITextField!
+    @IBOutlet var tfIntro: UITextField!
+    @IBOutlet var tfLink: UITextField!
+    @IBOutlet var tfGender: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        //이미지 버튼 원 작업
+        // 이미지 버튼 원 작업
         profileImage.layer.cornerRadius = 0.5 * profileImage.bounds.size.width
         profileImage.clipsToBounds = true
         
         navigationItem.title = "프로필 편집"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(enterUserData))
-       // navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelEditing))
+        // navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelEditing))
     }
    
     @objc func cancelEditing() {
@@ -42,7 +39,7 @@ class EditMyPageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    //뷰 띄울때 데이터 업데이트
+    // 뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -52,16 +49,10 @@ class EditMyPageViewController: UIViewController {
             userGender = tabController.userData.map { $0.userGender }
             userIntro = tabController.userData.map { $0.userIntro }
             userLink = tabController.userData.map { $0.userLink }
-            
         }
-        
     }
     
-    
-   
     @IBAction func enterUserData(_ sender: Any) {
-    
-    
         // Name
         if let textField = tfName, let name = textField.text, !name.isEmpty {
             userName.append(name)
@@ -100,7 +91,6 @@ class EditMyPageViewController: UIViewController {
         } else {
             showAlert(message: "성별을 다시 입력해주세요")
             return
-            
         }
         
         cancelEditing()
@@ -109,11 +99,7 @@ class EditMyPageViewController: UIViewController {
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default)
             alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
-        
     }
-    
-    
-    
 }
