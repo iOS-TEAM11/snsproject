@@ -25,15 +25,25 @@ class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageViewMyProfile: UIImageView!
     
+    @IBAction func popUpButton(_ sender: Any) {
+        
+            print("popup")
+    }
+    
+    var likeCount: Int = 999 {
+        didSet {
+            labelHowManyLike.text = "좋아요 \(likeCount)개"
+        }
+    }
     
     @IBOutlet weak var pullDownButton: UIButton!
     
-    
-    @IBAction func actionIsHeart(_ sender: Any) {
-        if buttonIsHeart.isSelected {  //true면 클릭이 되어있는 거니까 false로 클릭을 풀어줌
-            buttonIsHeart.isSelected = false
-        } else { //아닐경우엔 클릭을 다시 해 주 ㅁ
-            buttonIsHeart.isSelected = true
+        @IBAction func actionIsHeart(_ sender: Any) {
+        buttonIsHeart.isSelected.toggle()
+        if buttonIsHeart.isSelected {
+            likeCount += 1
+        } else {
+            likeCount -= 1
         }
     }
     
@@ -70,9 +80,15 @@ class FeedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        //이미지 더블 탭
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTappedImageView))
+        doubleTapGesture.numberOfTapsRequired = 2
+        imageViewFeed.addGestureRecognizer(doubleTapGesture)
+        imageViewFeed.isUserInteractionEnabled = true
+        
         setUpPullDownButton()
 
-        // Initialization code
         //좋아요 밑에 아이디 bold설정
 //        let fontSize = UIFont.boldSystemFont(ofSize: 15)
 //        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
@@ -91,4 +107,25 @@ class FeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @objc func doubleTappedImageView() {
+        //하트 이미지 생성
+        let heartImageView = UIImageView(image: UIImage(named: "Vector"))
+        //시작 위치 설정
+        heartImageView.frame = CGRect(x: imageViewFeed.frame.midX, y: imageViewFeed.frame.midY, width: 40, height: 40)
+        self.addSubview(heartImageView)
+        
+        UIView.animate(withDuration: 0.8,
+        //애니메이션 종료 시의 위치 설정
+        animations: {heartImageView.frame.origin.y -= 100},
+        //위로 이동하며 사라지는 효과
+        completion: { _ in heartImageView.removeFromSuperview()})
+        
+        buttonIsHeart.isSelected.toggle()
+        //좋아요 개수
+        if buttonIsHeart.isSelected {
+            likeCount += 1
+        } else {
+            likeCount -= 1
+        }
+    }
 }
