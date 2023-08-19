@@ -31,6 +31,7 @@ class FeedViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
