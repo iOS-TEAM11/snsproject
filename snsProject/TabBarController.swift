@@ -4,7 +4,7 @@ class TabBarController: UITabBarController {
 
     //var posts: [Post] = []
 //    var posts = DataManager.shared.posts
-    var userData: [UserDatum] = []
+    var userData: [UserData] = []
     
     
     private let imagePickerController = ImagePickerController()

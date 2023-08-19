@@ -54,12 +54,15 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         //좋아요 밑에 아이디 bold설정
-        let fontSize = UIFont.boldSystemFont(ofSize: 15)
-        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
-        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
-        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
+//        let fontSize = UIFont.boldSystemFont(ofSize: 15)
+//        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
+//
+//        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
+//        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
+//
+//        labelFeed.attributedText = attributedStr
         
-        labelFeed.attributedText = attributedStr
+        labelUserName.font = UIFont.boldSystemFont(ofSize: 15)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

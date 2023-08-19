@@ -1,35 +1,19 @@
-//
-//  ViewController.swift
-//  snsProject
-//
-//  Created by t2023-m0062 on 2023/08/14.
-//
+
 
 import UIKit
 
 class FeedViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    // 피드화면 데이터
-//    var feedImage: [UIImage] = []
-//    var feedText: [String] = []
-
-    var userId = "11조  "
-    
-    
-//    func loadDummyData() {
-//        feedImage.append(contentsOf: [dummyImage1, dummyImage2])
-//        feedText.append(contentsOf: ["iOS개발자가 되고 싶어요", "제발요"])
-//    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         DummyData.shared.loadDummyData()
 
-
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
         //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
@@ -38,10 +22,7 @@ class FeedViewController: UIViewController {
     //뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-
-
-        
+    
         self.tableView.reloadData()
     }
 }
@@ -59,7 +40,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.imageViewFeed.image = DataManager.shared.myFeedImg[indexPath.row]
-        cell.labelFeed.text = DataManager.shared.myFeedText[indexPath.row]
+        cell.labelFeed.text = cell.labelUserName.text!+" "+DataManager.shared.myFeedText[indexPath.row]
 
         return cell
     }

@@ -14,6 +14,8 @@ class DummyData {
         DataManager.shared.myFeedImg.append(contentsOf: [dummyImage1, dummyImage2])
         DataManager.shared.myFeedText.append(contentsOf: [dummyText1, dummyText2])
     }
+    private init() {}
+
 }
 
 // 게시물 저장 데이터
@@ -25,9 +27,7 @@ class DataManager {
     var myFeedImg: [UIImage] = []
     var myFeedText: [String] = []
 
-    private init() {
-        
-    }
+    private init() {}
 }
 
 //싱글톤으로 선언된 데이터로 통일
@@ -38,7 +38,7 @@ class DataManager {
 
 
 // 유저 데이터
-struct UserDatum {
+struct UserData {
     let userImage: UIImage
     let userName: String
     let userNickName: String
