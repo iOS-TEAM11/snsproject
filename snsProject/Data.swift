@@ -32,3 +32,15 @@ struct UserDatum {
     let userLink: String
 }
 
+// 사용자 데이터를 관리하고 저장
+class UserDataManager {
+    static let shared = UserDataManager()
+
+    var userArray: [UserDatum] = []
+
+    private init() {}
+
+    func addUser(user: UserDatum) {
+        userArray.append(user)
+    }
+}

@@ -94,7 +94,17 @@ class EditMyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let lastUser = UserDataManager.shared.userArray.last {
+            tfName.text = lastUser.userName
+            tfNickName.text = lastUser.userNickName
+            tfIntro.text = lastUser.userIntro
+            tfLink.text = lastUser.userLink
 
+            selectedGender = lastUser.userGender
+            genderButton.setTitle(selectedGender.isEmpty ? "선택하세요" : selectedGender, for: .normal)
+            let isGenderSelected = selectedGender == "남성" || selectedGender == "여성"
+            genderButton.setTitleColor(isGenderSelected ? .black : UIColor.black.withAlphaComponent(0.3), for: .normal)
+        }
     }
 
     
@@ -138,7 +148,19 @@ class EditMyPageViewController: UIViewController {
             showAlert(message: "성별을 선택해주세요")
             return
         }
+        
+        //데이터 생성 및 저장
+        let user = UserDatum(
+            userImage: UIImage(),
+            userName: userName.last ?? "",
+            userNickName: userNickName.last ?? "",
+            userGender: selectedGender,
+            userIntro: userIntro.last ?? "",
+            userLink: userLink.last ?? ""
+        )
 
+        UserDataManager.shared.addUser(user: user)
+        
         //데이터 저장후 화면 전환
         cancelEditing()
         
