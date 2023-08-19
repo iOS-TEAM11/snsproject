@@ -5,6 +5,7 @@ class EditViewController: UIViewController {
     let uploadImage: UIImage
     private let imageView = UIImageView()
     lazy var textField: UITextField = {
+
           let textField = UITextField()
           textField.font = .systemFont(ofSize: 15.0)
           if let indexPath = indexPath, indexPath < DataManager.shared.posts.count {
@@ -53,6 +54,7 @@ private extension EditViewController {
 
         let post = Post(image: uploadImage, description: textField.text ?? "")
         DataManager.shared.posts.insert(post, at: 0)
+
         dismiss(animated: true)
     }
 
@@ -83,7 +85,6 @@ private extension EditViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: imageViewInset),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: imageViewInset),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: imageViewInset),
-
         ])
     }
 }

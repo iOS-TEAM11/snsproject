@@ -3,9 +3,7 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-    
-
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     var userId = "iOS_TEAM11 "
 
@@ -13,6 +11,7 @@ class FeedViewController: UIViewController {
     let feedTableViewCell = FeedTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -23,24 +22,24 @@ class FeedViewController: UIViewController {
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
     }
     
-    //뷰 띄울때 데이터 업데이트
+    // 뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
     
         self.tableView.reloadData()
     }
     
     
-
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
-    //numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
+    // numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DataManager.shared.posts.count
     }
     
-    //cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
+    // cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
@@ -53,7 +52,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 600
+        return 600
     }
-  }
-
+}

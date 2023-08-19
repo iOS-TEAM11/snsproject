@@ -12,6 +12,10 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        myPageCollectionView.addGestureRecognizer(longPressGesture)
+
+        myPageCollectionView.reloadData()
     }
     
     // 뷰 띄울때 데이터 업데이트
@@ -21,10 +25,10 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         
         myPageCollectionView.addGestureRecognizer(longPressGesture)
-        if let tabController = tabBarController as? TabBarController {
-//            DataManager.shared.myFeedImg = tabController.posts.map { $0.image }
-            myPageCollectionView.reloadData()
-        }
+       
+        myPageCollectionView.reloadData()
+
+
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
@@ -48,7 +52,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(navigationController, animated: true, completion: nil)
     }
     
-
     func showActionButtons(at indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
            
@@ -60,6 +63,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive) { [weak self] _ in
             // 삭제하기 구현
             DataManager.shared.posts.remove(at: indexPath.row)
+            print("삭제:\(DataManager.shared.posts)")
+
             self?.myPageCollectionView.reloadData()
         }
            
@@ -137,7 +142,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             cell.parentViewController = self
             cell.postingCountLabel.text = String(DataManager.shared.posts.count)
-
+<
             return cell
             
         default:

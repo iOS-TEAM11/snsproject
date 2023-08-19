@@ -21,7 +21,6 @@ struct Post {
     let description: String
 }
 
-
 // 유저 데이터
 struct UserData {
     let userImage: UIImage
