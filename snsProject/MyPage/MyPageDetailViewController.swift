@@ -3,7 +3,7 @@ import UIKit
 class MyPageDetailViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    // var selectedImage: UIImage?
+    var userId = "iOS_TEAM11 "
     var selectedIndexPath: Int?
     
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ extension MyPageDetailViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
-        cell.labelFeed.text = DataManager.shared.posts[indexPath.row].description
+        cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
         return cell
     }
     
