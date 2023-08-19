@@ -9,11 +9,13 @@ import UIKit
 
 class EditMyPageViewController: UIViewController {
     
+    // 데이터 저장 배열
     var userName: [String] = []
     var userNickName: [String] = []
-    var userGender: [String] = []
     var userIntro: [String] = []
     var userLink: [String] = []
+    var selectedGender: String = "선택 하세요" // 초기 값 설정
+
     
     
     @IBOutlet weak var profileImage: UIButton!
@@ -22,46 +24,83 @@ class EditMyPageViewController: UIViewController {
     @IBOutlet weak var tfNickName: UITextField!
     @IBOutlet weak var tfIntro: UITextField!
     @IBOutlet weak var tfLink: UITextField!
-    @IBOutlet weak var tfGender: UITextField!
     
+    @IBOutlet weak var genderButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //이미지 버튼 원 작업
+        //성별 선택 버튼 초기화
+        pushgenderButton()
+        
+        //이미지 버튼 둥글게 작업
         profileImage.layer.cornerRadius = 0.5 * profileImage.bounds.size.width
         profileImage.clipsToBounds = true
         
+        //네비게이션 바 커스텀
         navigationItem.title = "프로필 편집"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(enterUserData))
-        // navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelEditing))
+        
+        //네비게이션 바 백 버튼 커스텀
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelEditing))
+        
+        
     }
+    
+    func pushgenderButton(){
+        let genderoption = { [weak self] (genderaction: UIAction) in
+                    guard let self = self else { return }
+                    self.selectedGender = genderaction.title
+                    self.genderButton.setTitle(self.selectedGender, for: .normal)
+            
+        
+                    // 선택한 성별에 따라 텍스트 스타일 변경
+                    let isGenderSelected = self.selectedGender == "남성" || self.selectedGender == "여성"
+                    self.genderButton.setTitleColor(isGenderSelected ? .black : UIColor.black.withAlphaComponent(0.3), for: .normal)
+            
+            
+        }
+        
+        // 항목 추가
+        let maleAction = UIAction(title: "남성", handler: genderoption)
+        let femaleAction = UIAction(title: "여성", handler: genderoption)
+        let grnderAction = UIAction(title: "선택 하세요", handler: genderoption)
+        
+        // 항목 표시
+        genderButton.menu = UIMenu(children: [grnderAction, maleAction, femaleAction,])
+        genderButton.showsMenuAsPrimaryAction = true
+        genderButton.changesSelectionAsPrimaryAction = true
+
+        // 선택전 설정
+        genderButton.setTitle("선택 하세요", for: .normal)
+        genderButton.setTitleColor(UIColor.black.withAlphaComponent(0.3), for: .normal)
+        genderButton.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+        
+    }
+    
+    
+
     
     @objc func cancelEditing() {
         // 이전 뷰 컨트롤러로 돌아가는 코드 추가
         navigationController?.popViewController(animated: true)
+        
     }
     
-    //뷰 띄울때 데이터 업데이트
+    
+    
+    
+    //뷰 띄울때 마지막 저장된 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let tabController = tabBarController as? TabBarController {
-            userName = tabController.userData.map { $0.userName }
-            userNickName = tabController.userData.map { $0.userNickName }
-            userGender = tabController.userData.map { $0.userGender }
-            userIntro = tabController.userData.map { $0.userIntro }
-            userLink = tabController.userData.map { $0.userLink }
-            
-        }
-        
+
     }
+
     
     
-    
+    // 데이터 받아 저장
     @IBAction func enterUserData(_ sender: Any) {
-        
-        
         // Name
         if let textField = tfName, let name = textField.text, !name.isEmpty {
             userName.append(name)
@@ -95,16 +134,15 @@ class EditMyPageViewController: UIViewController {
         }
         
         // Gender
-        if let textField = tfGender, let gender = textField.text, !gender.isEmpty {
-            userGender.append(gender)
-        } else {
-            showAlert(message: "성별을 다시 입력해주세요")
+        if selectedGender == "선택 하세요" {
+            showAlert(message: "성별을 선택해주세요")
             return
-            
         }
-        
+
+        //데이터 저장후 화면 전환
         cancelEditing()
         
+        //경고창
         func showAlert(message: String) {
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default)
@@ -113,5 +151,6 @@ class EditMyPageViewController: UIViewController {
         }
         
     }
-
+    
+    
 }
