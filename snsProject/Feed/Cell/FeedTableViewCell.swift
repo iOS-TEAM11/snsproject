@@ -110,6 +110,7 @@ class FeedTableViewCell: UITableViewCell {
 
         labelFeed.attributedText = attributedStr
         
+        labelUserName.text = "iOS_TEAM11"
         labelUserName.font = UIFont.boldSystemFont(ofSize: 15)
     }
 
