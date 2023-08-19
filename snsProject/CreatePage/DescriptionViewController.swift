@@ -55,17 +55,10 @@ private extension DescriptionViewController {
             return
         }
         
-//        let post = Post(image: uploadImage, description: textField.text ?? "")
-        DataManager.shared.myFeedImg.insert(uploadImage, at: 0)
-        DataManager.shared.myFeedText.insert(textField.text ?? "", at: 0)
-        
+        let post = Post(image: uploadImage, description: textField.text ?? "")
+        DataManager.shared.posts.insert(post, at: 0)
+        print("post == \(DataManager.shared.posts)")
         dismiss(animated: true)
-        
-//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "PhoneCheckViewController")
-//                vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
-//                vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
-//                self.present(vcName!, animated: true, completion: nil)
-        
     }
 
     

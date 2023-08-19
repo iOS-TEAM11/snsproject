@@ -60,8 +60,8 @@ class FeedTableViewCell: UITableViewCell {
     func setUpPullDownButton() {
         let optionClosure = {  (action: UIAction) in
             if action.title == "삭제" {
-                DataManager.shared.myFeedImg.remove(at: 0)
-                DataManager.shared.myFeedText.remove(at: 0)
+                DataManager.shared.posts.remove(at: 0).image
+                DataManager.shared.posts.remove(at: 0).description
        
             }
             print(action.title)
@@ -89,14 +89,14 @@ class FeedTableViewCell: UITableViewCell {
         
         setUpPullDownButton()
 
-        //좋아요 밑에 아이디 bold설정
-//        let fontSize = UIFont.boldSystemFont(ofSize: 15)
-//        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
-//
-//        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
-//        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
-//
-//        labelFeed.attributedText = attributedStr
+       //좋아요 밑에 아이디 bold설정
+        let fontSize = UIFont.boldSystemFont(ofSize: 15)
+        let attributedStr = NSMutableAttributedString(string: labelFeed.text ?? "")
+
+        //폰트 bold 범위 설정 -> snsProject값을 넣어놔서 일단 10 넣어놓음
+        attributedStr.addAttribute(.font, value: fontSize, range: NSRange.init(location: 0, length: 10 ))
+
+        labelFeed.attributedText = attributedStr
         
         labelUserName.font = UIFont.boldSystemFont(ofSize: 15)
     }

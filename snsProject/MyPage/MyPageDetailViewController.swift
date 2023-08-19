@@ -8,6 +8,8 @@ class MyPageDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad 데이터 확인: \(DataManager.shared.posts.count)")
+
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,7 +41,7 @@ class MyPageDetailViewController: UIViewController {
 extension MyPageDetailViewController: UITableViewDelegate, UITableViewDataSource {
     // numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.shared.myFeedImg.count
+        return DataManager.shared.posts.count
     }
     
     // cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
@@ -48,8 +50,8 @@ extension MyPageDetailViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         
-        cell.imageViewFeed.image = DataManager.shared.myFeedImg[indexPath.row]
-        cell.labelFeed.text = DataManager.shared.myFeedText[indexPath.row]
+        cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
+        cell.labelFeed.text = DataManager.shared.posts[indexPath.row].description
         return cell
     }
     

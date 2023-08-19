@@ -39,7 +39,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // 수정하기 클릭시 작동되는 함수
     func showEditViewController(at indexPath: IndexPath) {
-        let editViewController = EditViewController(uploadImage: DataManager.shared.myFeedImg[indexPath.row])
+        let editViewController = EditViewController(uploadImage: DataManager.shared.posts[indexPath.row].image)
         editViewController.indexPath = indexPath.row
         
         let navigationController = UINavigationController(rootViewController: editViewController)
@@ -59,7 +59,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
            
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive) { [weak self] _ in
             // 삭제하기 구현
-            DataManager.shared.myFeedImg.remove(at: indexPath.row)
+            DataManager.shared.posts.remove(at: indexPath.row)
             self?.myPageCollectionView.reloadData()
         }
            
@@ -102,7 +102,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
            let detailVC = segue.destination as? MyPageDetailViewController,
            let indexPath = sender as? Int
         {
-            detailVC.selectedImage = DataManager.shared.myFeedImg[indexPath]
+            // detailVC.selectedImage = DataManager.shared.posts[indexPath].image
             detailVC.selectedIndexPath = indexPath
         }
     }
@@ -118,7 +118,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 0:
             return 1
         default:
-            return DataManager.shared.myFeedImg.count
+            return DataManager.shared.posts.count
         }
     }
 
@@ -136,8 +136,8 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             cell.parentViewController = self
-            cell.postingCountLabel.text = String(DataManager.shared.myFeedImg.count)
-            
+            cell.postingCountLabel.text = String(DataManager.shared.posts.count)
+
             return cell
             
         default:
@@ -149,7 +149,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             // 데이터가져오기
-            let img = DataManager.shared.myFeedImg[indexPath.item]
+            let img = DataManager.shared.posts[indexPath.item].image
             // print(myFeedImg.count)
             cell.setPostImage(img)
 

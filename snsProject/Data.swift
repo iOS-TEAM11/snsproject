@@ -2,39 +2,24 @@
 import UIKit
 
 
-class DummyData {
-    static let shared = DummyData()
 
-    let dummyImage1 = #imageLiteral(resourceName: "dummy1")
-    let dummyImage2 = #imageLiteral(resourceName: "dummy2")
-    let dummyText1 = "11조 화이팅"
-    let dummyText2 = "화이팅팅ㅇㅅㅇ/"
-    
-    func loadDummyData() {
-        DataManager.shared.myFeedImg.append(contentsOf: [dummyImage1, dummyImage2])
-        DataManager.shared.myFeedText.append(contentsOf: [dummyText1, dummyText2])
-    }
-    private init() {}
-
-}
 
 // 게시물 저장 데이터
 class DataManager {
-    
-    //싱글톤 패턴
+    // 싱글톤 패턴
     static let shared = DataManager()
-    
-    var myFeedImg: [UIImage] = []
-    var myFeedText: [String] = []
+    var posts: [Post] = [
+        Post(image: #imageLiteral(resourceName: "dummy1"), description: "iOS개발자가 되고 싶어요"),
+        Post(image: #imageLiteral(resourceName: "dummy2"), description: "제발요")
+    ]
 
     private init() {}
 }
 
-//싱글톤으로 선언된 데이터로 통일
-//struct Post {
-//    let image: UIImage
-//    let description: String
-//}
+struct Post {
+    let image: UIImage
+    let description: String
+}
 
 
 // 유저 데이터

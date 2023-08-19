@@ -4,11 +4,15 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
+
     @IBOutlet weak var tableView: UITableView!
+    
+    var userId = "iOS_TEAM11 "
+
+    
     let feedTableViewCell = FeedTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
-        DummyData.shared.loadDummyData()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -33,7 +37,7 @@ class FeedViewController: UIViewController {
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     //numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.shared.myFeedImg.count
+        return DataManager.shared.posts.count
     }
     
     //cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
@@ -42,8 +46,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.imageViewFeed.image = DataManager.shared.myFeedImg[indexPath.row]
-        cell.labelFeed.text = cell.labelUserName.text!+" "+DataManager.shared.myFeedText[indexPath.row]
+        cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
+        cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
 
         return cell
     }
