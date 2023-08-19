@@ -97,6 +97,9 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="comment"/>
                         <state key="selected" image="Vector"/>
+                        <connections>
+                            <action selector="didClickCommentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1CY-6k-Ntw"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOf-Oq-0Af">
                         <rect key="frame" x="77" y="547" width="17" height="17"/>

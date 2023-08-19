@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol FeedTableViewCellDelegate: AnyObject {
     func didTapDeleteButton(in cell: FeedTableViewCell)
     func didTapModifyButton(in cell: FeedTableViewCell)
@@ -15,7 +14,8 @@ protocol FeedTableViewCellDelegate: AnyObject {
 }
 
 class FeedTableViewCell: UITableViewCell {
-
+    weak var delegate: FeedTableViewCellDelegate?
+    
     @IBOutlet weak var imageViewUseProfile: UIImageView!
     
     @IBOutlet weak var labelUserName: UILabel!
@@ -55,6 +55,10 @@ class FeedTableViewCell: UITableViewCell {
         } else {
             likeCount -= 1
         }
+    }
+    
+    @IBAction func didClickCommentButton(_ sender: UIButton) {
+        delegate?.showCommentModalViewController()
     }
     
     @IBAction func actionBookMark(_ sender: Any) {
@@ -139,3 +143,4 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
 }
+

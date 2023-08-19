@@ -14,7 +14,6 @@ class FeedViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
-        
         //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
@@ -27,8 +26,6 @@ class FeedViewController: UIViewController {
     
         self.tableView.reloadData()
     }
-    
-    
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -42,10 +39,10 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
-        
         cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
         cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
         cell.delegate = self
+
         return cell
     }
     
@@ -53,7 +50,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         return 600
     }
 }
-
 
 extension FeedViewController: FeedTableViewCellDelegate {
     func didTapDeleteButton(in cell: FeedTableViewCell) {
