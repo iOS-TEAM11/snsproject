@@ -25,13 +25,8 @@ class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageViewMyProfile: UIImageView!
     
-    @IBAction func popUpButton(_ sender: Any) {
-        
-            print("popup")
-    }
     
-
-    
+    @IBOutlet weak var pullDownButton: UIButton!
     
     
     @IBAction func actionIsHeart(_ sender: Any) {
@@ -50,8 +45,33 @@ class FeedTableViewCell: UITableViewCell {
         }
     }
     
+    
+    // 풀다운 버튼 함수
+    func setUpPullDownButton() {
+        let optionClosure = {  (action: UIAction) in
+            if action.title == "삭제" {
+                DataManager.shared.myFeedImg.remove(at: 0)
+                DataManager.shared.myFeedText.remove(at: 0)
+       
+            }
+            print(action.title)
+        }
+        
+//        let optionClosure = {(action: UIAction) in print(action.title)}
+        
+        self.pullDownButton.menu = UIMenu(children : [
+            UIAction(title: "수정", state: .on, handler: optionClosure),
+            UIAction(title: "삭제", handler: optionClosure)
+        ])
+        
+        self.pullDownButton.showsMenuAsPrimaryAction = true
+        self.pullDownButton.changesSelectionAsPrimaryAction = true
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpPullDownButton()
+
         // Initialization code
         //좋아요 밑에 아이디 bold설정
 //        let fontSize = UIFont.boldSystemFont(ofSize: 15)

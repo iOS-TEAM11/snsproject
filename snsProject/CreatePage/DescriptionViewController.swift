@@ -8,7 +8,6 @@ import UIKit
 
 class DescriptionViewController: UIViewController {
     
-    
     let uploadImage: UIImage
     private let imageView = UIImageView()
     private lazy var textField: UITextField = {
@@ -59,7 +58,13 @@ private extension DescriptionViewController {
 //        let post = Post(image: uploadImage, description: textField.text ?? "")
         DataManager.shared.myFeedImg.insert(uploadImage, at: 0)
         DataManager.shared.myFeedText.insert(textField.text ?? "", at: 0)
+        
         dismiss(animated: true)
+        
+//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "PhoneCheckViewController")
+//                vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+//                vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+//                self.present(vcName!, animated: true, completion: nil)
         
     }
 

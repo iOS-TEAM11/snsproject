@@ -5,11 +5,10 @@ import UIKit
 class FeedViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-        
+    let feedTableViewCell = FeedTableViewCell()
     override func viewDidLoad() {
         super.viewDidLoad()
         DummyData.shared.loadDummyData()
-
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -25,6 +24,9 @@ class FeedViewController: UIViewController {
     
         self.tableView.reloadData()
     }
+    
+    
+
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
