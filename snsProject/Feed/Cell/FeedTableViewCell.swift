@@ -38,6 +38,7 @@ class FeedTableViewCell: UITableViewCell {
             print("popup")
     }
     
+
     var likeCount: Int = 999 {
         didSet {
             labelHowManyLike.text = "좋아요 \(likeCount)개"
