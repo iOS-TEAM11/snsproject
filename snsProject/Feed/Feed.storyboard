@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="bottom" secondItem="3PS-88-sos" secondAttribute="bottom" constant="10" id="wk3-Rh-pgp"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dmk-uP-pjv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dmk-uP-pjv">
                                 <rect key="frame" x="0.0" y="99" width="393" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -85,11 +85,22 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="dmk-uP-pjv" id="MtL-ky-LCL"/>
+                        <segue destination="Yrq-ci-eT7" kind="presentation" identifier="CommentViewController" id="0oZ-WV-K7K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="64.885496183206101" y="-2.1126760563380285"/>
+        </scene>
+        <!--CommentViewController-->
+        <scene sceneID="3jU-kC-vTo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CommentViewController" storyboardName="CommentViewController" referencedIdentifier="CommentViewController" id="Yrq-ci-eT7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Lhx-Ws-QOi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8su-d7-12r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="-57"/>
         </scene>
     </scenes>
     <resources>

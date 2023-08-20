@@ -50,8 +50,8 @@
                             <action selector="actionBookMark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ekt-f2-hN4"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋아요 4개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-a5-Dcb">
-                        <rect key="frame" x="10" y="577" width="74.333333333333329" height="20.333333333333371"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="좋아요 999개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-a5-Dcb">
+                        <rect key="frame" x="10" y="577" width="96.666666666666671" height="20.333333333333371"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -97,6 +97,9 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="comment"/>
                         <state key="selected" image="Vector"/>
+                        <connections>
+                            <action selector="didClickCommentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1CY-6k-Ntw"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOf-Oq-0Af">
                         <rect key="frame" x="77" y="547" width="17" height="17"/>
@@ -107,26 +110,24 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="Shape"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRR-ns-t0T">
+                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opd-fM-kUC">
                         <rect key="frame" x="457" y="10" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="M3J-Wr-QsA"/>
-                            <constraint firstAttribute="width" constant="25" id="bVh-L8-OEk"/>
+                            <constraint firstAttribute="width" constant="25" id="c3q-ei-KSQ"/>
+                            <constraint firstAttribute="height" constant="25" id="vRn-GS-KMZ"/>
                         </constraints>
-                        <menu key="menu" id="sR8-wV-Zy2">
+                        <menu key="menu" id="D6Y-Gt-5d9">
                             <children>
-                                <command title="Item 1" id="7bc-H7-S38"/>
-                                <command title="Item 2" id="RRq-9M-ISH"/>
+                                <command title="Item 1" id="hcT-gH-ZbL"/>
+                                <command title="Item 2" id="Cf9-qh-leD"/>
                             </children>
                         </menu>
                         <state key="normal" title="Button" image="dot"/>
-                        <connections>
-                            <action selector="popUpButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5K2-Ur-5xb"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Kz7-AH-tQE" firstAttribute="centerY" secondItem="poN-oG-7Mr" secondAttribute="centerY" id="05j-GU-0zi"/>
+                    <constraint firstAttribute="trailing" secondItem="Opd-fM-kUC" secondAttribute="trailing" constant="10" id="0eE-L2-ANa"/>
                     <constraint firstItem="290-1t-san" firstAttribute="leading" secondItem="Dho-pf-SJj" secondAttribute="leading" id="2fs-e9-FiA"/>
                     <constraint firstItem="6W7-a5-Dcb" firstAttribute="top" secondItem="poN-oG-7Mr" secondAttribute="bottom" constant="10" id="33A-L8-vA0"/>
                     <constraint firstItem="yM9-OZ-d1F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Ft-Wd-ZjM"/>
@@ -150,6 +151,7 @@
                     <constraint firstItem="JjT-L0-wqs" firstAttribute="leading" secondItem="Dho-pf-SJj" secondAttribute="trailing" constant="10" id="q6Y-2H-VZp"/>
                     <constraint firstItem="bTf-nd-32C" firstAttribute="leading" secondItem="6W7-a5-Dcb" secondAttribute="leading" id="qAF-Cn-9IH"/>
                     <constraint firstItem="Kz7-AH-tQE" firstAttribute="leading" secondItem="poN-oG-7Mr" secondAttribute="trailing" constant="13" id="qao-Qv-bL7"/>
+                    <constraint firstItem="Opd-fM-kUC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="r4W-ru-8Sv"/>
                     <constraint firstItem="NBl-4s-HIR" firstAttribute="leading" secondItem="290-1t-san" secondAttribute="trailing" constant="7" id="r7E-2I-yCv"/>
                     <constraint firstItem="6W7-a5-Dcb" firstAttribute="leading" secondItem="poN-oG-7Mr" secondAttribute="leading" id="rdS-zA-s30"/>
                     <constraint firstItem="JjT-L0-wqs" firstAttribute="centerY" secondItem="Dho-pf-SJj" secondAttribute="centerY" id="tF9-Y3-Mk3"/>
@@ -167,6 +169,7 @@
                 <outlet property="labelFeed" destination="bTf-nd-32C" id="g7N-jg-Ayx"/>
                 <outlet property="labelHowManyLike" destination="6W7-a5-Dcb" id="HMR-Tc-En9"/>
                 <outlet property="labelUserName" destination="JjT-L0-wqs" id="nGV-G8-yQ2"/>
+                <outlet property="pullDownButton" destination="Opd-fM-kUC" id="4nf-J5-tPq"/>
             </connections>
             <point key="canvasLocation" x="268.70229007633588" y="265.49295774647891"/>
         </tableViewCell>

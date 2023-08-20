@@ -1,74 +1,75 @@
-//
-//  ViewController.swift
-//  snsProject
-//
-//  Created by t2023-m0062 on 2023/08/14.
-//
+
 
 import UIKit
 
 class FeedViewController: UIViewController {
+    @IBOutlet var tableView: UITableView!
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    // 피드화면 데이터
-    var feedImage: [UIImage] = []
-    var feedText: [String] = []
-    let dummyImage1 = #imageLiteral(resourceName: "dummy1")
-    let dummyImage2 = #imageLiteral(resourceName: "dummy2")
-    var userId = "11조  "
-    
-    
-    func loadDummyData() {
-        feedImage.append(contentsOf: [dummyImage1, dummyImage2])
-        feedText.append(contentsOf: ["iOS개발자가 되고 싶어요", "제발요"])
-    }
+    var userId = "iOS_TEAM11 "
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDummyData()
-
-
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
+        
         //FeedTableViewCell가 생긴걸 viewDidLoad아래에 등록해줘야함 , Nib은 FeedTableViewCell을 의미 ..
         let feedNib = UINib(nibName: "FeedTableViewCell", bundle: nil)
         tableView.register(feedNib, forCellReuseIdentifier: "FeedTableViewCell")
     }
     
-    //뷰 띄울때 데이터 업데이트
+    // 뷰 띄울때 데이터 업데이트
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
 
-        if let tabController = tabBarController as? TabBarController {
-            feedImage.append(contentsOf: tabController.posts.map { $0.image })
-            feedText.append(contentsOf: tabController.posts.map { $0.description })
-        }
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
-    //numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
+    // numberOfRowsInSection - 한 섹션에 몇개의 셀을 넣을건지
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedImage.count
+        return DataManager.shared.posts.count
     }
     
-    //cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
+    // cellForRowAt - 어떠한 셀을 보여줄 것인지? -> FeedTableViewCell 보여줄거임!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
-        
-        cell.imageViewFeed.image = feedImage[indexPath.row]
-        cell.labelFeed.text = userId + feedText[indexPath.row]
+
+        cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
+        cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
+        cell.delegate = self
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 600
+        return 600
     }
-  }
+}
 
+extension FeedViewController: FeedTableViewCellDelegate {
+    func showCommentModalViewController() {
+        performSegue(withIdentifier: "CommentViewController", sender: self)
+    }
+    
+    func didTapDeleteButton(in cell: FeedTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        
+        DataManager.shared.posts.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    func didTapModifyButton(in cell: FeedTableViewCell) {
+            guard let indexPath = tableView.indexPath(for: cell) else { return }
+
+            let post = DataManager.shared.posts[indexPath.row]
+            let editVC = EditViewController(uploadImage: post.image)
+            editVC.indexPath = indexPath.row
+            let navController = UINavigationController(rootViewController: editVC)
+            present(navController, animated: true)
+        }
+}
