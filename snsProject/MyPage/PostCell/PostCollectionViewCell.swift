@@ -12,8 +12,6 @@ class PostCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var postImageView: UIImageView!
 
-
-    
     func setPostImage(_ image: UIImage) {
         postImageView.image = image
     }

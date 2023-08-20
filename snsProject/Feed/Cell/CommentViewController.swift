@@ -8,41 +8,38 @@
 import UIKit
 
 class CommentViewController: UIViewController, UITableViewDelegate {
-
-    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet var commentLabel: UILabel!
     
-    @IBOutlet weak var dmButton: UIButton!
+    @IBOutlet var dmButton: UIButton!
     
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet var headerView: UIView!
     
-    @IBOutlet weak var commentField: UITextView!
+    @IBOutlet var commentField: UITextView!
         
-    @IBOutlet weak var commentProfileImage: UIImageView!
+    @IBOutlet var commentProfileImage: UIImageView!
     
-    @IBOutlet weak var separateLine: UIView!
+    @IBOutlet var separateLine: UIView!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
-    @IBOutlet weak var registerBtn: UIButton!
-    
-    
+    @IBOutlet var registerBtn: UIButton!
     
     @IBAction func registerBtnTapped(_ sender: UIButton) {
         if !commentField.text.isEmpty {
             comment.append(commentField.text)
-            commentField.text = ""  //댓글 입력 필드 초기화
-            tableView.reloadData() //댓글 추가되면 테이블뷰 리로드
-            //입력된 댓글의 셀로 스크롤
+            commentField.text = "" // 댓글 입력 필드 초기화
+            tableView.reloadData() // 댓글 추가되면 테이블뷰 리로드
+            // 입력된 댓글의 셀로 스크롤
             let indexPath = IndexPath(row: comment.count - 1, section: 0)
             tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-            //키보드 자동으로 내리기
+            // 키보드 자동으로 내리기
             commentField.resignFirstResponder()
         }
     }
     
     var keyboardHeight: CGFloat = 0
     var placeholderLabel: UILabel!
-    //배열에 댓글 저장
+    // 배열에 댓글 저장
     var comment: [String] = []
     
     override func viewDidLoad() {
@@ -52,7 +49,6 @@ class CommentViewController: UIViewController, UITableViewDelegate {
         
         let CommentNib = UINib(nibName: "CommentTableViewCell", bundle: nil)
         tableView.register(CommentNib, forCellReuseIdentifier: "CommentTableViewCell")
-        
         
         headerView.layer.cornerRadius = 5
         headerView.clipsToBounds = true
@@ -64,7 +60,7 @@ class CommentViewController: UIViewController, UITableViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
-        //placeholder
+        // placeholder
         placeholderLabel = UILabel()
         placeholderLabel.text = " instagram_id(으)로 댓글 달기..."
         placeholderLabel.textColor = UIColor.lightGray
@@ -76,22 +72,21 @@ class CommentViewController: UIViewController, UITableViewDelegate {
         placeholderLabel.topAnchor.constraint(equalTo: commentField.topAnchor, constant: 8).isActive = true
         
         commentField.delegate = self
-        //구분선 없애기
+        // 구분선 없애기
         tableView.separatorStyle = .none
     }
     
-    
-    
     @objc func keyboardWillShow(_ notification: Notification) {
         if let userInfo = notification.userInfo,
-           let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-               keyboardHeight = keyboardFrame.size.height
+           let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        {
+            keyboardHeight = keyboardFrame.size.height
                
-               //댓글 창을 키보드의 높이만큼 올립니다
-               UIView.animate(withDuration: 0.3) {
-                   self.view.frame.origin.y = -self.keyboardHeight
-               }
-           }
+            // 댓글 창을 키보드의 높이만큼 올립니다
+            UIView.animate(withDuration: 0.3) {
+                self.view.frame.origin.y = -self.keyboardHeight
+            }
+        }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
@@ -121,7 +116,7 @@ extension CommentViewController: UITextViewDelegate, UITableViewDataSource {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
-    //댓글 삭제
+    // 댓글 삭제
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             comment.remove(at: indexPath.row)
@@ -129,4 +124,3 @@ extension CommentViewController: UITextViewDelegate, UITableViewDataSource {
         }
     }
 }
-

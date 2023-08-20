@@ -1,7 +1,6 @@
 import UIKit
 
 class DescriptionViewController: UIViewController {
-
     let uploadImage: UIImage
     private let imageView = UIImageView()
     private lazy var textField: UITextField = {
