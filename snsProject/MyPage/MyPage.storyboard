@@ -51,7 +51,7 @@
                             <constraint firstItem="5F1-ca-BRf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="wbC-dk-p9W"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Vector 1" selectedImage="Vector 1" id="wj8-H4-wbG">
+                    <tabBarItem key="tabBarItem" title="" image="Vector 1" landscapeImage="Vector 1" largeContentSizeImage="Vector 1" selectedImage="Vector 1" id="wj8-H4-wbG">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-20"/>
                         <inset key="largeContentSizeImageInsets" minX="40" minY="1" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>

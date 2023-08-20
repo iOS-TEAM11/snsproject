@@ -1,7 +1,6 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
     var userData: [UserData] = []
 
     private let imagePickerController = ImagePickerController()
@@ -10,6 +9,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         self.selectedIndex = 0
         self.delegate = self
+
         self.imagePickerController.tabController = self
     }
 

@@ -1,7 +1,6 @@
 import UIKit
 
 class ImagePickerController: UIViewController {
-
     private var picker = UIImagePickerController()
     weak var tabController: TabBarController?
 
@@ -12,25 +11,19 @@ class ImagePickerController: UIViewController {
         picker.allowsEditing = true
         picker.modalPresentationStyle = .fullScreen
         tabController.present(picker, animated: true, completion: nil)
-
     }
 }
 
-
-
-
 extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         var selectedImage: UIImage?
-        
+
         if let editedImage = info[.editedImage] as? UIImage {
             selectedImage = editedImage
         } else if let originImage = info[.originalImage] as? UIImage {
             selectedImage = originImage
         }
-        
+
         picker.dismiss(animated: true) {
             guard let tabController = self.tabController else { return }
             let descriptionViewController = DescriptionViewController(uploadImage: selectedImage ?? UIImage())

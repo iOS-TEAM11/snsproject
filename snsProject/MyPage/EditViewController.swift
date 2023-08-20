@@ -12,6 +12,7 @@ class EditViewController: UIViewController {
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 15.0)
+
         if let indexPath = indexPath, indexPath < DataManager.shared.posts.count {
             textField.text = DataManager.shared.posts[indexPath].description
         }
@@ -36,7 +37,6 @@ class EditViewController: UIViewController {
         setupLayout()
         imageView.image = uploadImage
     }
-    
 }
 
 private extension EditViewController {
@@ -51,7 +51,7 @@ private extension EditViewController {
     }
 
     @objc func didTapRightButton() {
-        guard let indexPath = indexPath, indexPath < DataManager.shared.posts.count else{
+        guard let indexPath = indexPath, indexPath < DataManager.shared.posts.count else {
             dismiss(animated: true)
             return
         }
@@ -87,6 +87,7 @@ private extension EditViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: imageViewInset),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: imageViewInset),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: imageViewInset),
+
         ])
     }
 }
