@@ -4,6 +4,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 프로퍼티 설정
     @IBOutlet var myPageCollectionView: UICollectionView!
     
+
     var longPressGesture: UILongPressGestureRecognizer! // 길게 누르기 동작
 
     let collectionView = MyPageCollectionViewCell()
@@ -25,6 +26,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         
         myPageCollectionView.addGestureRecognizer(longPressGesture)
+
        
         myPageCollectionView.reloadData()
     }
@@ -55,6 +57,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(navigationController, animated: true, completion: nil)
     }
     
+
     func showActionButtons(at indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -65,6 +68,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate, U
            
         let deleteAction = UIAlertAction(title: "삭제하기", style: .destructive) { [weak self] _ in
             // 삭제하기 구현
+
             DataManager.shared.posts.remove(at: indexPath.row)
             print("삭제:\(DataManager.shared.posts)")
 
@@ -110,6 +114,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
            let detailVC = segue.destination as? MyPageDetailViewController,
            let indexPath = sender as? Int
         {
+
             // detailVC.selectedImage = DataManager.shared.posts[indexPath].image
             detailVC.selectedIndexPath = indexPath
         }
@@ -126,6 +131,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case 0:
             return 1
         default:
+
             return DataManager.shared.posts.count
         }
     }
@@ -144,6 +150,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             cell.parentViewController = self
+
             cell.postingCountLabel.text = String(DataManager.shared.posts.count)
 
             return cell
@@ -157,6 +164,7 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
             
             // 데이터가져오기
+
             let img = DataManager.shared.posts[indexPath.item].image
             // print(myFeedImg.count)
             cell.setPostImage(img)

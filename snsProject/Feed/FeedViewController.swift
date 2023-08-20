@@ -23,7 +23,6 @@ class FeedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-    
         self.tableView.reloadData()
     }
 }
@@ -39,6 +38,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
+
         cell.imageViewFeed.image = DataManager.shared.posts[indexPath.row].image
         cell.labelFeed.text = userId + DataManager.shared.posts[indexPath.row].description
         cell.delegate = self
