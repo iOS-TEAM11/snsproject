@@ -1,14 +1,11 @@
 
 import UIKit
 
-
-
-
 // 게시물 저장 데이터
 class DataManager {
     // 싱글톤 패턴
     static let shared = DataManager()
-    
+
     var posts: [Post] = [
         Post(image: #imageLiteral(resourceName: "dummy1"), description: "iOS개발자가 되고 싶어요"),
         Post(image: #imageLiteral(resourceName: "dummy2"), description: "제발요")
@@ -36,7 +33,7 @@ struct UserData {
 class UserDataManager {
     static let shared = UserDataManager()
 
-    var userArray: [UserDatum] = []
+    var userArray: [UserData] = []
 
     private var userLink: String?
 
@@ -44,7 +41,7 @@ class UserDataManager {
         userLink = UserDefaults.standard.string(forKey: "userLink")
     }
 
-    func addUser(user: UserDatum) {
+    func addUser(user: UserData) {
         userArray.append(user)
     }
 
@@ -56,7 +53,7 @@ class UserDataManager {
     func getUserLink() -> String? {
         return userLink
     }
-    
+
     func resetLink() {
         UserDefaults.standard.removeObject(forKey: "userLink")
     }

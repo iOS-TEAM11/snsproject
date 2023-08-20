@@ -8,15 +8,13 @@
 import UIKit
 
 class CommentTableViewCell: UITableViewCell {
+    @IBOutlet var CommentProfile: UIImageView!
     
-    @IBOutlet weak var CommentProfile: UIImageView!
+    @IBOutlet var commentId: UILabel!
     
-    @IBOutlet weak var commentId: UILabel!
+    @IBOutlet var commentFieldLabel: UILabel!
     
-    @IBOutlet weak var commentFieldLabel: UILabel!
-    
-    @IBOutlet weak var commentBtnHeart: UIButton!
-    
+    @IBOutlet var commentBtnHeart: UIButton!
     
     @IBAction func actionCommentHeart(_ sender: UIButton) {
         if commentBtnHeart.isSelected {
@@ -36,5 +34,4 @@ class CommentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

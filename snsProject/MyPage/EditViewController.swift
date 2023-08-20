@@ -32,7 +32,6 @@ class EditViewController: UIViewController {
         setupLayout()
         imageView.image = uploadImage
     }
-
 }
 
 private extension EditViewController {
@@ -47,8 +46,7 @@ private extension EditViewController {
     }
 
     @objc func didTapRightButton() {
-
-        guard let indexPath = indexPath, indexPath < DataManager.shared.posts.count else{
+        guard let indexPath = indexPath, indexPath < DataManager.shared.posts.count else {
             dismiss(animated: true)
             return
         }
