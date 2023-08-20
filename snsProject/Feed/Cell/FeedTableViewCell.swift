@@ -117,6 +117,7 @@ class FeedTableViewCell: UITableViewCell {
     
     @objc func doubleTappedImageView() {
         // 하트 이미지 생성
+
         let heartImageView = UIImageView(image: UIImage(named: "Vector"))
         // 시작 위치 설정
         heartImageView.frame = CGRect(x: imageViewFeed.frame.midX, y: imageViewFeed.frame.midY, width: 40, height: 40)

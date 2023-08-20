@@ -1,8 +1,13 @@
 import UIKit
 
 class DescriptionViewController: UIViewController {
-    let uploadImage: UIImage
+
+
+    private let uploadImage: UIImage
     private let imageView = UIImageView()
+    private let feedVC = FeedViewController()
+
+    weak var tabController: TabBarController?
     private lazy var textField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 15.0)
@@ -15,11 +20,12 @@ class DescriptionViewController: UIViewController {
         self.uploadImage = uploadImage
         super.init(nibName: nil, bundle: nil)
     }
-
-    @available(*, unavailable)
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,8 @@ class DescriptionViewController: UIViewController {
         setupLayout()
         imageView.image = uploadImage
     }
+    
+
 }
 
 private extension DescriptionViewController {
@@ -43,10 +51,7 @@ private extension DescriptionViewController {
 
     @objc func didTapRightButton() {
         let post = Post(image: uploadImage, description: textField.text ?? "")
-        print("post: \(post)")
-
         DataManager.shared.posts.insert(post, at: 0)
-        print("post == \(DataManager.shared.posts)")
         dismiss(animated: true)
     }
 
@@ -78,6 +83,7 @@ private extension DescriptionViewController {
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: imageViewInset),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: imageViewInset),
 
+            
         ])
     }
 }

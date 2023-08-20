@@ -1,9 +1,14 @@
 import UIKit
 
 class EditViewController: UIViewController {
+    
     var indexPath: Int?
-    let uploadImage: UIImage
+    var onCompletion: ((Int) -> Void)?
+
+    
+    private let uploadImage: UIImage
     private let imageView = UIImageView()
+
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.font = .systemFont(ofSize: 15.0)
@@ -51,7 +56,7 @@ private extension EditViewController {
             return
         }
         DataManager.shared.posts[indexPath].description = textField.text ?? ""
-
+        onCompletion?(indexPath)
         dismiss(animated: true)
     }
 

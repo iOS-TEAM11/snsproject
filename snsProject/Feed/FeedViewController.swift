@@ -1,5 +1,5 @@
 
-
+//FeedViewController.swift
 import UIKit
 
 class FeedViewController: UIViewController {
@@ -56,19 +56,32 @@ extension FeedViewController: FeedTableViewCellDelegate {
     }
 
     func didTapDeleteButton(in cell: FeedTableViewCell) {
+        
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
         DataManager.shared.posts.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
+        
+    
     }
 
     func didTapModifyButton(in cell: FeedTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
 
-        let post = DataManager.shared.posts[indexPath.row]
-        let editVC = EditViewController(uploadImage: post.image)
-        editVC.indexPath = indexPath.row
-        let navController = UINavigationController(rootViewController: editVC)
-        present(navController, animated: true)
-    }
+
+            let post = DataManager.shared.posts[indexPath.row]
+            let editVC = EditViewController(uploadImage: post.image)
+            editVC.indexPath = indexPath.row
+        
+            // 텍스트 수정시 즉각 업데이트 코드
+            editVC.onCompletion = { [weak self] _ in
+                self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            
+        
+            // 화면전화
+            let navController = UINavigationController(rootViewController: editVC)
+            present(navController, animated: true)
+        }
+
 }
