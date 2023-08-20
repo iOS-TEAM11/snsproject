@@ -101,6 +101,49 @@
 * commit 메세지 수시로 작성해두기
 
 ## 앱 시현 영상
+영상 사이즈가 너무 커서 이미지로 대체하도록 하겠습니다
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://github.com/iOS-TEAM11/snsproject/assets/93186591/4ae3affd-b743-438f-8a84-deaceace029b" width = 200 height = 400>
+      </td>
+       <td>
+        <img src="https://github.com/iOS-TEAM11/snsproject/assets/93186591/cf5bff81-699e-4e04-8a22-77c34d94e004" width = 200 height = 400>
+      </td>
+       <td>
+        <img src="https://github.com/iOS-TEAM11/snsproject/assets/93186591/d27cf1b7-48e5-447f-9f98-a8ec7a062432" width = 200 height = 400>
+      </td>
+      <td>
+        <img src="https://github.com/iOS-TEAM11/snsproject/assets/93186591/aa1364f8-61f9-4d77-9e0b-8bcdf032080e" width = 200 height = 400>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+[자세한 기능 구현 영상](https://youtu.be/OzzGY_m__vg)
+
+## 프로젝트 주요 기능
+
+- 전종혁 : CreatePage, Dummy Data
+    
+    > *UIViewController, 데이터 Post 모델 구조 작성,* UIImagePicker, UIAlertController, UIButton: PullDownButton
+    > 
+    
+- 이세령 : Feed, TabBar, 댓글
+    
+    > *UITableView, UITabBarController, UIViewController, UITableViewDelegate*
+    > 
+    
+- 김은경 : MyPage, Dummy Data
+    
+    > *UI(MyPageCell, PostCell)CollectionView 구성 , UILongPressGesture,                      Singleton pattern적용*
+    > 
+    
+- 하호형 : EditProfile
+    
+    > *UIViewController,* UIScrollView
+    >
 
 ## 추후 구현 목표
 - 중복 코드 제거
