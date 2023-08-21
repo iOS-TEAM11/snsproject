@@ -101,28 +101,39 @@ extension MyPageViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return 2
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GotoDetailPage",
-           let detailVC = segue.destination as? MyPageDetailViewController,
-           let indexPath = sender as? Int
-        {
-            // detailVC.selectedImage = DataManager.shared.posts[indexPath].image
-            detailVC.selectedIndexPath = indexPath
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "Feed",
+//           let detailVC = segue.destination as? FeedViewController,
+//           let indexPath = sender as? Int
+//        {
+//             detailVC.selectedImage = DataManager.shared.posts[indexPath].image
+//            detailVC.selectedIndexPath = indexPath
+//        }
+//    }
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        // print("index!!!: \(indexPath.row)")
+//
+//        performSegue(withIdentifier: "Feed", sender: indexPath.row)
+//    }
+
+ 
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+        if let feedVC = storyboard.instantiateViewController(withIdentifier: "Feed") as? FeedViewController {
+            navigationController?.pushViewController(feedVC, animated: true)
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // print("index!!!: \(indexPath.row)")
 
-        performSegue(withIdentifier: "GotoDetailPage", sender: indexPath.row)
-    }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
         default:
-
             return DataManager.shared.posts.count
         }
     }
