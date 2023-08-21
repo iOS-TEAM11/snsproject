@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */; };
 		0843146D2A8CACFF00C7A56E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0843146C2A8CACFF00C7A56E /* Data.swift */; };
+		08A336842A930AEF00ED781D /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A336832A930AEF00ED781D /* DescriptionView.swift */; };
 		ACBA4BE72A8A44EA004D6E5A /* EditMyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */; };
 		ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */; };
 		C33C65762A911E0B00D2845C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33C65742A911E0B00D2845C /* CommentTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		0843146C2A8CACFF00C7A56E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		08A336832A930AEF00ED781D /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DescriptionView.swift; path = snsProject/DescriptionView.swift; sourceTree = SOURCE_ROOT; };
 		ACBA4BE62A8A44EA004D6E5A /* EditMyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMyPage.storyboard; sourceTree = "<group>"; };
 		ACBA4BE82A8A4511004D6E5A /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
 		C33C65742A911E0B00D2845C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				C3CCB3292A89FBA80026EEA8 /* CreatePage.storyboard */,
 				C3CCB32D2A89FE6E0026EEA8 /* ImagePickerController.swift */,
 				083D798F2A8BADCE00F174EB /* DescriptionViewController.swift */,
+				08A336832A930AEF00ED781D /* DescriptionView.swift */,
 			);
 			path = CreatePage;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				C3CBD8222A8A09E60020A3DE /* SearchViewController.swift in Sources */,
 				083D79902A8BADCE00F174EB /* DescriptionViewController.swift in Sources */,
 				C3CCB30C2A89C6A20026EEA8 /* FeedViewController.swift in Sources */,
+				08A336842A930AEF00ED781D /* DescriptionView.swift in Sources */,
 				C3CCB3082A89C6A20026EEA8 /* AppDelegate.swift in Sources */,
 				ACBA4BE92A8A4511004D6E5A /* EditMyPageViewController.swift in Sources */,
 				FB6DF9B22A8F529B00EED4B5 /* EditViewController.swift in Sources */,
